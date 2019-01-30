@@ -1294,7 +1294,7 @@ div div div img{
 }
 
 .containergrid div {
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(230, 230, 230);
 }
 
 .ParallaxContainer {
@@ -1317,14 +1317,14 @@ div div div img{
 .containergrid div {
   background-size: cover;
   grid-column: span 4;
-  grid-row: span 2;
+  grid-row: span 3;
   background-position:center;
 }
 
 .containergrid .words {
   background-size: cover;
   grid-column: span 1;
-  grid-row: span 2;
+  grid-row: span 3;
   background-color:;
 }
 
@@ -1335,7 +1335,7 @@ div div div img{
   transform: translateY(80%);
   font-family: 'Roboto Condensed';
   font-weight: bold;
-  color: gray;
+  color: rgb(80, 80, 80);;
 }
 
 .archpic1 {
@@ -1344,7 +1344,7 @@ div div div img{
 }
 
 .archpic2 {
-  background:url('gallery/Portfolio 201812.jpg');
+  background:url('gallery/axofacade.png');
 
 }
 
@@ -1353,7 +1353,7 @@ div div div img{
 }
 
 .archpic4 {
-  background:url('gallery/Portfolio 201822.jpg');
+  background:url('gallery/render1.png');
 }
 
 .yaqzancontainer{
@@ -1370,7 +1370,7 @@ div div div img{
   height:100%;
   background-color:;
   position: absolute;
-  color: rgb(150, 150, 150);
+  color: rgb(80, 80, 80);
 }
 
 .projectnameright{
@@ -1451,6 +1451,14 @@ i {
 
   .test1 {grid-row: 3/3;grid-column: 1/1}
 
+  .containergrid {
+    grid-auto-rows: 40px;
+  }
+
+  .downloadpdf {
+    top: 50%;
+    transform: translateY(-30%);
+  }
 }
 
 .yaqzancontainer {
