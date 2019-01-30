@@ -1328,6 +1328,16 @@ div div div img{
   background-color:;
 }
 
+.downloadpdf {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(80%);
+  font-family: 'Roboto Condensed';
+  font-weight: bold;
+  color: gray;
+}
+
 .archpic1 {
   background:url('gallery/Portfolio 20189.jpg');
 
