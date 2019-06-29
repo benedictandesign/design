@@ -49,6 +49,10 @@
   <body class="">
     <div  class="m-scene" id="">
       <div class="indexbody2">
+        <div class="fullscreen_bg">
+            <video id = "vid" loop muted autoplay class="fullscreen-bg_video">
+              <source src = "gallery/Circulation_Animation_Short.mp4">
+            </video>
           <div class="contain">
             <div class="logo scene_element scene_element--fadein">BT / JK</div>
             <div class="options scene_element scene_element--fadeinup">
@@ -63,5 +67,8 @@
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="assets/js/jquery.smoothState.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+      document.getElementById("vid").playbackRate = 0.7;
+    </script>
    </body>
 </html>
