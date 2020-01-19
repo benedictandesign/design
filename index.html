@@ -2,73 +2,42 @@
 <html lang="en-US">
   <head>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/keyframes.css">
-    <!--<link rel="stylesheet" href="assets/css/layout.css">-->
-    <link rel="stylesheet" href="assets/css/pageTransitions.css">
-
-    <link rel="stylesheet" type="text/css" href="dist/fullpage.css" />
-    <!--<link rel="stylesheet" type="text/css" href="examples.css" />-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell|Raleway&display=swap" rel="stylesheet">
     <meta charset="utf-8">
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="President Fishtank">
-    <meta name="description" content="Architecture, Web Design, Coding etc, Jack of All Trades, Master None">
+    <meta name="description" content="Architecture, Web Design, Coding etc, Jack of All Trades, Master of None">
     <meta name="keywords" content="President Fishtank, Architecture, Web Design, Coding">
     <!--<base href="https://btjk.github.io/design/" />-->
     <style>
 
-  	/* Style for our header texts
-  	* --------------------------------------- */
-  	h1{
-  		font-size: 5em;
-  		font-family: arial,helvetica;
-  		color: #fff;
-  		margin:0;
-  	}
-
-  	.intro p{
-  		color: #fff;
-  	}
-  	/* Centered texts in each section
-  	* --------------------------------------- */
-  	.section{
-  		text-align:center;
-  	}
-  	/* Overwriting styles for control arrows for slides
-  	* --------------------------------------- */
-  	.controlArrow.prev {
-  		left: 50px;
-  	}
-  	.controlArrow.next{
-  		right: 50px;
-  	}
-
-  </style>
+    </style>
   </head>
+
   <body class="">
-    <div  class="m-scene" id="">
-      <div class="indexbody2">
-        <div class="fullscreen_bg">
-            <video id = "vid" loop muted autoplay class="fullscreen-bg_video">
-              <source src = "gallery/Circulation_Animation_Short.mp4">
-            </video>
-          <div class="contain">
-            <div class="logo scene_element scene_element--fadein">BT / JK</div>
-            <div class="options scene_element scene_element--fadeinup">
-              <div class="topchoice"><a href="architecture.html">Architecture</a></div>
-              <div class="choice"><a href="discover.html">Discover</a></div>
-              <div class="choice"><a href="about.html">About</a></div>
-              <div class="bottomchoice"><a href="contact.html">Contact</a></div>
-            </div>
-          </div>
-        </div>
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <script src="assets/js/jquery.smoothState.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script>
-      document.getElementById("vid").playbackRate = 0.7;
-    </script>
+    <div class="fullscreen-bg">
+      <video id = "vid" loop muted autoplay class="fullscreen-bg_video">
+        <source src = "gallery/Circulation_Animation_Short.mp4">
+      </video>
+    </div>
+    <div class = "dots"> </div>
+    <div class="base">
+       <div class="infobar col-md-12 my-auto row">
+         <div class="title">BT/JK</div>
+         <div class="col-sm-1 row">
+           <div class="col-sm-12" id="menu"><a href="architecture.html">Architecture</a></div>
+           <div class="col-sm-12" id="menu"><a href="discover.html">Discover</a></div>
+           <div class="col-sm-12" id="menu"><a href="about.html">About</a></div>
+           <div class="col-sm-12" id="menu"><a href="contact.html">Contact</a></div>
+         </div>
+       </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
    </body>
 </html>

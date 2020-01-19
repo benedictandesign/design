@@ -2,16 +2,9 @@
 <html lang="en-US">
   <head>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/keyframes.css">
-    <!--<link rel="stylesheet" href="assets/css/layout.css">-->
-    <link rel="stylesheet" href="assets/css/pageTransitions.css">
-
-    <link rel="stylesheet" type="text/css" href="dist/fullpage.css" />
-    <!--<link rel="stylesheet" type="text/css" href="examples.css" />-->
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell|Raleway&display=swap" rel="stylesheet">
     <meta charset="utf-8">
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="President Fishtank">
     <meta name="description" content="Architecture, Web Design, Coding etc, Jack of All Trades, Master of None">
@@ -19,141 +12,42 @@
     <!--<base href="https://btjk.github.io/design/" />-->
     <style>
 
-  	/* Style for our header texts
-  	* --------------------------------------- */
-  	h1{
-  		font-size: 5em;
-  		font-family: arial,helvetica;
-  		color: #fff;
-  		margin:0;
-  	}
-  	.intro p{
-  		color: #fff;
-  	}
-  	/* Centered texts in each section
-  	* --------------------------------------- */
-  	.section{
-  		text-align:center;
-  	}
-  	/* Overwriting styles for control arrows for slides
-  	* --------------------------------------- */
-  	.controlArrow.prev {
-  		left: 50px;
-  	}
-  	.controlArrow.next{
-  		right: 50px;
-  	}
-
-  </style>
+    </style>
   </head>
+
   <body class="">
-    <div  class="m-scene" id="" >
-      <div class="scene_element scene_element--fadein">
-        <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <button class="dropbtn"><a href = "architecture.html">Architecture</a></button>
-            <button class="dropbtn"><a href = "discover.html">Discover</a></button>
-            <button class="dropbtn"><a href="about.html">About</a></button>
-            <button class="dropbtn"><a href="contact.html">Contact</a></button>
-              <!--<button class="dropbtn" onclick="myFunction()"><a>Architecture</a></button>
-              <ul class="dropdown-content" id="myDropdown">
-                  <li><a href="#">Home 1</a></li>
-                  <li><a href="#">Home 2</a></li>
-                  <li><a href="#">Home 3</a></li>
-              </ul>
-              <button class="dropbtn" onclick="myFunction2()"><a>Discover</a></button>
-              <ul class="dropdown-content" id="myDropdown2">
-                  <li><a href="#">CAD</a></li>
-                  <li><a href="#">Home 2</a></li>
-                  <li><a href="#">Home 3</a></li>
-              </ul>
-              <button class="dropbtn"><a href="about.html">About</a></button>
-              <button class="dropbtn"><a href="contact.html">Contact</a></button>-->
-
-        </div>
-      <div class="MainContainer">
-
-        <div class="ParallaxContainer">
-          <h1>
-            Architecture
-          </h1>
-        </div>
-
-        <div class="ContentContainer">
-          <div class="containergrid">
-            <div class="archpic1"></div>
-            <div class="words righted">
-              <div>
-                <p class="projectnameright">Yaqzan's Space</p>
-                <p class="projectdescription">Before, during and after meditation.</p>
-                <a href="portfolio/Yaqzan's Space.html">  <i class="right"></i></a>
-              </div>
-            </div>
-            <div class="words lefted">
-              <div>
-                <p class="projectnameleft">Points</p>
-                <p class="projectdescription">More than just a facade.</p>
-                <a href="portfolio/Points.html">  <i class="right"></i></a>
-              </div>
-            </div>
-            <div class="archpic2"></div>
-            <div class="archpic3"></div>
-            <div class="words righted">
-                <div>
-                  <p class="projectnameright">Crescendo</p>
-                  <p class="projectdescription">Progressive learning.</p>
-                  <a href="portfolio/Crescendo.html">  <i class="right"></i></a>
-                </div>
-              </div>
-            <div class="words lefted">
-              <div>
-                <p class="projectnameleft">Beyond 14!</p>
-                <p class="projectdescription">Influential views.</p>
-                <a href="portfolio/Beyond 14.html"><i class="right"></i></a>
-              </div>
-            </div>
-            <div class="archpic4"></div>
-            <div class="righted" style = "grid-column: span 5;grid-row: span 1;">
-             <a href = "gallery/Benedict Tan Portfolio 2018.pdf" download = "Benedict Tan Portfolio"><p class="downloadpdf">Download Portfolio as PDF</p></a>
-            </div>
-          </div>
-        </div>
+    <div class="dots"> </div>
+    <div class="base">
+      <div class="row profiles">
+        <div class="col-md-4 padbox" onclick="location.href='portfolio/Gulu Goolu.html';"><div class="prof-img-gulu"></div></div>
+        <div class="col-md-4 padbox" onclick="location.href='portfolio/Beyond 14.html';"><div class="prof-img-cloud10"></div></div>
+        <div class="col-md-4 padbox" onclick="location.href='portfolio/Crescendo.html';"><div class="prof-img-crescendo"></div></div>
+        <div class="col-md-4 padbox" onclick="location.href='portfolio/Yaqzans Space.html';"><div class="prof-img-yaqzan"></div></div>
+        <div class="col-md-4 padbox" onclick="location.href='portfolio/Points.html';"><div class="prof-img-points"></div></div>
+        <div class="col-md-4 padbox" onclick="location.href='portfolio/Beyond 14.html';"><div class="prof-img-beyond14"></div></div>
       </div>
+       <div class="col-md-12 my-auto row" onmouseover="reveal(this)" onmouseout="hide(this)">
+         <div class="col-sm-12 title2"><a href="index.html">BT/JK</a></div>
+         <div class="dropdown-content col-sm-1">
+           <div class="p-menu" id="menu"><a href="architecture.html">Architecture</a></div>
+           <div class="p-menu" id="menu"><a href="discover.html">Discover</a></div>
+           <div class="p-menu" id="menu"><a href="about.html">About</a></div>
+           <div class="p-menu" id="menu"><a href="contact.html">Contact</a></div>
+         </div>
+       </div>
     </div>
 
-    <span id="threelineclose" style="font-size:30px;cursor:pointer;position:absolute;top:2%;right:3%;" onclick="openNav()">&#9776;</span>
-    <div style="font-size:30px;position:fixed;top:2.5%;left:3%;">BT / JK</div>
-  </div>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <script src="assets/js/jquery.smoothState.min.js"></script>
-    <script src="assets/js/main.js"></script>
-
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script>
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("threelineclose").style.display="none";
+    function reveal(x) {
+      document.getElementsByClassName("dropdown-content")[0].style.display = "block";
     }
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("threelineclose").style.display="block";
+    function hide(x) {
+      document.getElementsByClassName("dropdown-content")[0].style.display = "none";
     }
     </script>
-
-
-    <script>
-    /* When the user clicks on the button,
-    toggle between hiding and showing the dropdown content */
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-    function myFunction2() {
-        document.getElementById("myDropdown2").classList.toggle("show");
-    }
-    </script>
-
    </body>
 </html>
