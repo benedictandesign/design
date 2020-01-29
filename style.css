@@ -311,10 +311,12 @@ body, html {
 
 .horizontal_img {
   position: relative;
-  max-width: 100%;
+  max-width: 1280px;
   max-height: 100vh;
   transform: translateX(-50%);
   left:50%;
+  padding-top:1%;
+  padding-bottom:1%;
 }
 
 .horizontal_slider img {
@@ -324,12 +326,12 @@ body, html {
 .horizontal_slider_left {
   position: absolute;
   top:50%;
-  left:5%;
+  left:10%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  color:white;
+  color:rgb(158, 158, 158);
   z-index:1;
-  transform: scale(7);
+  transform: scale(6);
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */
@@ -342,12 +344,12 @@ body, html {
 .horizontal_slider_right {
   position: absolute;
   top:50%;
-  right: 5%;
+  right: 10%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  color:white;
+  color:rgb(158, 158, 158);
   z-index:1;
-  transform: scale(7);
+  transform: scale(5);
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */
@@ -361,6 +363,13 @@ body, html {
   cursor: crosshair;
 }
 
+.youtube_frame {
+  position: relative;
+  transform: translateX(-50%);
+  z-index: 1;
+  left:50%;
+  margin:.25%;
+}
 @media only screen and (min-width: 0px) {
 
 
