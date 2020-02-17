@@ -52,6 +52,9 @@ body, html {
   min-height: 100%;
 }
 
+.black_base{
+  background-color: black;
+}
 .title {
   font-family: 'Cantarell', sans-serif;
   padding-left: 60px;
@@ -181,7 +184,7 @@ body, html {
 .prof-img-gulu {
   border-radius: 10px;
   height:100%;
-  background: url(gallery/IslandPlan4.png);
+  background: url(gallery/IMG_20191220_150047-01-01-01.jpeg);
   background-color: black;
   background-size: 85%,85%;
   background-repeat: no-repeat;
@@ -331,7 +334,7 @@ body, html {
   transform: translateY(-50%);
   color:rgb(158, 158, 158);
   z-index:1;
-  transform: scale(6);
+  transform: scale(5);
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */
