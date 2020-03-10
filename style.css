@@ -55,6 +55,45 @@ body, html {
 .architecture_bckgrd{
   background-color: rgb(240, 240, 240);
 }
+
+.about_bckgrd {
+  position: absolute;
+  display: inline-block;
+  height:50%;
+  width:100%;
+  bottom: 0px;
+  background-image: url('gallery/Island Plan Portfolio About Page.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-filter: grayscale(60%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(60%);
+}
+
+.About_Description {
+  position: absolute;
+  padding:30px;
+  top:20%;
+  left:50%;
+  width:60%;
+  max-width:600px;
+  color: rgb(237, 237, 237);
+  transform: translate(-50%,0%);
+  background-color: rgba(238, 46, 123, 0.59);
+}
+
+.description-box{
+  padding: 15px;
+  text-align: center;
+  position: fixed;
+  right:50%;
+  width: 50%;
+  height:50%;
+  bottom: 0%;
+  transform: translate(50%,50%);
+}
+
+
+
 .black_base{
   background-color: black;
 }
@@ -323,14 +362,14 @@ body, html {
 
 .vertical_img {
   position: relative;
-  height: 100vh;
+  max-width: 40%;
   transform: translateX(-50%);
   left:50%;
 }
 
 .horizontal_img {
   position: relative;
-  max-width: 1280px;
+  max-width: 40%;
   max-height: 100vh;
   transform: translateX(-50%);
   left:50%;
@@ -389,22 +428,120 @@ body, html {
   left:50%;
   margin:.25%;
 }
-@media only screen and (min-width: 0px) {
 
+@media only screen and (max-width: 767.98px) {
+  .profiles {
+    width: 150px;
+  }
 
+  .padbox {
+    height: 110px;
+  }
+  .title {
+    font-size: 100px;
+    line-height:100%;
+    text-align: center;
+    padding:0;
+  }
+  .page {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .infobar div {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .row{
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  .title2 {
+    font-size: 40px;
+  }
+
+  .p-menu {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  #menu {
+    font-size: 15px;
+  }
+
+  .About_Description h1 {
+    font-size:25px;
+  }
+
+  .About_Description p {
+    font-size:13px;
+  }
+
+  .vertical_img {
+    max-width: 50%;
+  }
+
+  .horizontal_img {
+    max-width: 50%;
+  }
 }
 
-@media only screen and (min-width: 767.98px) {
+@media only screen and (max-width: 991.98px) {
+  .title {
+    font-size: 100px;
+    line-height:100%;
+    text-align: center;
+    padding:0;
+  }
+  .page {
+    text-align: center;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
+  .infobar div {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .row{
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  .col-sm-1 {
+    max-width: 100% !important;;
+  }
 
+  .title2 {
+    font-size: 40px;
+  }
+
+  .p-menu {
+    margin-left: 0;
+    padding-left: 5px;;
+  }
+
+  #menu {
+    font-size: 15px;
+  }
+
+  .vertical_img {
+    max-width: 45%;
+  }
+
+  .horizontal_img {
+    max-width: 45%;
+  }
 }
 
-@media only screen and (min-width: 991.98px) {
+@media only screen and (max-width: 1199.98px) {
+  .vertical_img {
+    max-width: 45%;
+  }
 
-
-}
-
-@media only screen and (min-width: 1199.98px) {
-
+  .horizontal_img {
+    max-width: 45%;
+  }
 
 }

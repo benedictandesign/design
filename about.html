@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cantarell|Raleway&display=swap" rel="stylesheet">
     <meta charset="utf-8">
@@ -9,33 +9,34 @@
     <meta name="author" content="President Fishtank">
     <meta name="description" content="Architecture, Web Design, Coding etc, Jack of All Trades, Master of None">
     <meta name="keywords" content="President Fishtank, Architecture, Web Design, Coding">
-    <title>BT/JK Points</title>
+    <title>BT/JK About</title>
     <!--<base href="https://btjk.github.io/design/" />-->
     <style>
-
+    .description-box {display:none;}
     </style>
   </head>
 
-  <body class="">
+  <body class="architecture_bckgrd">
+    <div class="about_bckgrd"> </div>
     <div class="base">
-       <div class="col-md-12 my-auto row navbar" onmouseover="reveal(this)" onmouseout="hide(this)">
-         <div class="col-sm-12 title2"><a href="../index.html">BT/JK</a></div>
+      <div class ="About_Description">
+        <h1>Hi! I'm Benedict Tan. Thank you for visiting!</h1>
+        <p>I'm a final year architectural student from the Singapore University of Technology and Design.</p>
+        <p>I like experimenting and challenging assumptions of long held ideas to create a better world. My current interest lies in technology as both an analytical and form-finding tool to discover new possibilities within architectural design.</p>
+        <p>Outside of architecture, I do web design, coding and fabrication besides the normal Youtube and Netflix. Do follow this space to see new things uploaded!</p>
+        <p>benedict_tan@mymail.sutd.edu.sg</p>
+      </div>
+       <div class="col-md-12 my-auto row" onmouseover="reveal(this)" onmouseout="hide(this)">
+         <div class="col-sm-12 title2"><a href="index.html">BT/JK</a></div>
          <div class="dropdown-content col-sm-1">
-           <div class="p-menu" id="menu"><a href="../architecture.html">Architecture</a></div>
-           <div class="p-menu" id="menu"><a href="../discover.html">Discover</a></div>
-           <div class="p-menu" id="menu"><a href="../about.html">About</a></div>
-           <div class="p-menu" id="menu"><a href="../contact.html">Contact</a></div>
+           <div class="p-menu" id="menu"><a href="architecture.html">Architecture</a></div>
+           <div class="p-menu" id="menu"><a href="discover.html">Discover</a></div>
+           <div class="p-menu" id="menu"><a href="about.html">About</a></div>
+           <div class="p-menu" id="menu"><a href="contact.html">Contact</a></div>
          </div>
        </div>
     </div>
-    <div id='imgContainer'>
-        <img src="../gallery/Portfolio Website10.jpg" id='imglogo'></img>
-        <img src="../gallery/Portfolio Website11.jpg" id='imglogo'></img>
-        <img src="../gallery/Portfolio Website12.jpg" id='imglogo'></img>
-        <img src="../gallery/Portfolio Website13.jpg" id='imglogo'></img>
-        <img src="../gallery/Portfolio Website14.jpg" id='imglogo'></img>
-        <img src="../gallery/Portfolio Website15.jpg" id='imglogo'></img>
-    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -46,6 +47,14 @@
     }
     function hide(x) {
       document.getElementsByClassName("dropdown-content")[0].style.display = "none";
+    }
+
+    function revealinfo(x) {
+      document.getElementsByClassName("description-box")[x].style.display = "block";
+    }
+
+    function hideinfo(x) {
+      document.getElementsByClassName("description-box")[x].style.display = "none";
     }
     </script>
    </body>
