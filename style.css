@@ -92,7 +92,22 @@ body, html {
   transform: translate(50%,50%);
 }
 
+.description_panel{
+  grid-column: span 2;
+  max-width: 100%;
+}
+.description-box2{
+  padding: 15px;
+  position: relative;
+  text-align: center;
+  top:50%;
+  transform: translateY(-50%);
+}
 
+.panelbox {
+  grid-column: span 1;
+  grid-row: span 1;
+}
 
 .black_base{
   background-color: black;
@@ -201,6 +216,17 @@ body, html {
   transform: translateX(-50%);
 }
 
+.panel_grid{
+  position:absolute;
+  display: grid;
+  grid-template-columns: 285px 285px 285px;
+  grid-template-rows: 200px 200px 200px;
+  grid-gap: 2%;
+  left:50%;
+  top:50%;
+  top: 150px;
+  transform: translate(-50%,35%);
+}
 .padbox {
   height:230px;
   padding:10px;
@@ -429,6 +455,72 @@ body, html {
   margin:.25%;
 }
 
+@media only screen and (max-width: 330px) {
+  .profiles {
+    width: 150px;
+  }
+
+  .padbox {
+    height: 110px;
+  }
+  .title {
+    font-size: 100px;
+    line-height:100%;
+    text-align: center;
+    padding:0;
+  }
+  .page {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .infobar div {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .row{
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  .title2 {
+    font-size: 40px;
+  }
+
+  .p-menu {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  #menu {
+    font-size: 15px;
+  }
+
+  .About_Description h1 {
+    font-size:25px;
+  }
+
+  .About_Description p {
+    font-size:13px;
+  }
+
+  .vertical_img {
+    max-width: 50%;
+  }
+
+  .horizontal_img {
+    max-width: 50%;
+  }
+
+  .panel_grid{
+    grid-template-columns: 142px 142px !important;
+    grid-template-rows: 100px 100px 100px 100px 100px !important;
+    grid-gap: 1%;
+    top:10% !important;
+    transform: translate(-50%,0%) !important;
+  }
+}
+
 @media only screen and (max-width: 767.98px) {
   .profiles {
     width: 150px;
@@ -485,6 +577,14 @@ body, html {
   .horizontal_img {
     max-width: 50%;
   }
+
+  .panel_grid{
+    grid-template-columns: 142px 142px !important;
+    grid-template-rows: 100px 100px 100px 100px 100px !important;
+    grid-gap: 1%;
+    top:20%;
+    transform: translate(-50%,0%) !important;
+  }
 }
 
 @media only screen and (max-width: 991.98px) {
@@ -532,6 +632,25 @@ body, html {
 
   .horizontal_img {
     max-width: 45%;
+  }
+
+  .panel_grid{
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 140px 140px 140px;
+    transform: translate(-50%,35%);
+  }
+
+  .description-box2 h1{
+    font-size:15px !important;
+  }
+  .description-box2 h2{
+    font-size:12px !important;
+  }
+  .description-box2 h3{
+    font-size:10px !important;
+  }
+  .description-box2 p{
+    font-size:10px !important;
   }
 }
 
