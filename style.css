@@ -70,6 +70,7 @@ body, html {
 }
 
 .About_Description {
+  font-family: 'Raleway', sans-serif;
   position: absolute;
   padding:30px;
   top:20%;
@@ -93,6 +94,7 @@ body, html {
 }
 
 .description_panel{
+  font-family: 'Cantarell', sans-serif;
   grid-column: span 2;
   max-width: 100%;
 }
@@ -496,12 +498,16 @@ body, html {
     font-size: 15px;
   }
 
+  .About_Description {
+    width: 80%;
+    top:15%;
+  }
   .About_Description h1 {
-    font-size:25px;
+    font-size:18px;
   }
 
   .About_Description p {
-    font-size:13px;
+    font-size:11px;
   }
 
   .vertical_img {
@@ -562,12 +568,17 @@ body, html {
     font-size: 15px;
   }
 
+  .About_Description {
+    width: 80%;
+    top:15%;
+  }
+
   .About_Description h1 {
-    font-size:25px;
+    font-size:18px;
   }
 
   .About_Description p {
-    font-size:13px;
+    font-size:11px;
   }
 
   .vertical_img {
@@ -577,12 +588,15 @@ body, html {
   .horizontal_img {
     max-width: 50%;
   }
-
+  .description_panel{
+    grid-column: span 3;
+    grid-row: span 2;
+  }
   .panel_grid{
-    grid-template-columns: 142px 142px !important;
-    grid-template-rows: 100px 100px 100px 100px 100px !important;
+    grid-template-columns: 100px 100px 100px !important;
+    grid-template-rows: 71px 71px 71px 71px 71px !important;
     grid-gap: 1%;
-    top:20%;
+    top:15% !important;
     transform: translate(-50%,0%) !important;
   }
 }
