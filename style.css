@@ -221,13 +221,13 @@ body, html {
 .panel_grid{
   position:absolute;
   display: grid;
-  grid-template-columns: 285px 285px 285px;
-  grid-template-rows: 200px 200px 200px;
+  grid-template-columns: 250px 250px 250px;
+  grid-template-rows: 150px 150px 150px;
   grid-gap: 2%;
   left:50%;
   top:50%;
-  top: 150px;
-  transform: translate(-50%,35%);
+  /*top: 150px;*/
+  transform: translate(-50%,-35%);
 }
 .padbox {
   height:230px;
