@@ -221,11 +221,11 @@ body, html {
 .panel_grid{
   position:absolute;
   display: grid;
-  grid-template-columns: 250px 250px 250px;
-  grid-template-rows: 150px 150px 150px;
+  grid-template-columns: 240px 240px 240px;
+  grid-template-rows: 140px 140px 140px;
   grid-gap: 2%;
   left:50%;
-  top:50%;
+  top:45%;
   /*top: 150px;*/
   transform: translate(-50%,-35%);
 }
@@ -651,7 +651,7 @@ body, html {
   .panel_grid{
     grid-template-columns: 200px 200px 200px;
     grid-template-rows: 140px 140px 140px;
-    transform: translate(-50%,35%);
+    transform: translate(-50%,-35%);
   }
 
   .description-box2 h1{
