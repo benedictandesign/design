@@ -83,7 +83,7 @@ body, html {
 }
 
 .description-box{
-  padding: 15px;
+  padding: ;
   text-align: center;
   position: fixed;
   right:50%;
@@ -95,7 +95,7 @@ body, html {
 
 .description_panel{
   font-family: 'Cantarell', sans-serif;
-  grid-column: span 2;
+  grid-column: span 3;
   max-width: 100%;
 }
 .description-box2{
@@ -222,7 +222,7 @@ body, html {
   position:absolute;
   display: grid;
   grid-template-columns: 240px 240px 240px;
-  grid-template-rows: 140px 140px 140px;
+  grid-template-rows: 140px 140px 140px 140px;
   grid-gap: 2%;
   left:50%;
   top:45%;
@@ -242,6 +242,32 @@ body, html {
   border-radius: 10px;
   height:100%;
   background: url(gallery/render1.png);
+  background-color: black;
+  background-size: 100%,100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: crosshair;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.prof-img-rehab {
+  border-radius: 10px;
+  height:100%;
+  background: url(gallery/PortfolioSectionPerspective-02.png);
+  background-color: black;
+  background-size: 100%,100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: crosshair;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.prof-img-leafy {
+  border-radius: 10px;
+  height:100%;
+  background: url(gallery/CanopyProjectFront.png);
   background-color: black;
   background-size: 100%,100%;
   background-repeat: no-repeat;
@@ -397,7 +423,7 @@ body, html {
 
 .horizontal_img {
   position: relative;
-  max-width: 40%;
+  max-width: 60%;
   max-height: 100vh;
   transform: translateX(-50%);
   left:50%;
@@ -515,7 +541,7 @@ body, html {
   }
 
   .horizontal_img {
-    max-width: 50%;
+    max-width: 60%;
   }
 
   .panel_grid{
@@ -586,11 +612,11 @@ body, html {
   }
 
   .horizontal_img {
-    max-width: 50%;
+    max-width: 60%;
   }
   .description_panel{
     grid-column: span 3;
-    grid-row: span 2;
+    grid-row: span 1;
   }
   .panel_grid{
     grid-template-columns: 100px 100px 100px !important;
@@ -645,7 +671,7 @@ body, html {
   }
 
   .horizontal_img {
-    max-width: 45%;
+    max-width: 60%;
   }
 
   .panel_grid{
@@ -674,7 +700,7 @@ body, html {
   }
 
   .horizontal_img {
-    max-width: 45%;
+    max-width: 55%;
   }
 
 }
