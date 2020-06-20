@@ -352,7 +352,7 @@ body, html {
   filter: grayscale(100%);
 }
 
-.prof-img-machine-crafted:hover, .prof-img-beyond14:hover, .prof-img-gulu:hover, .prof-img-crescendo:hover, .prof-img-crescendo:hover, .prof-img-cloud10:hover, .prof-img-points:hover, .prof-img-yaqzan:hover {
+.prof-img-rehab:hover, .prof-img-leafy:hover, .prof-img-machine-crafted:hover, .prof-img-beyond14:hover, .prof-img-gulu:hover, .prof-img-crescendo:hover, .prof-img-crescendo:hover, .prof-img-cloud10:hover, .prof-img-points:hover, .prof-img-yaqzan:hover {
   filter: none;
   -webkit-filter: grayscale(0%);
 }
