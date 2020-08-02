@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" href="aaidstyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="President Fishtank">
+    <meta name="description" content="Architecture, Web Design, Coding etc, AAID, Speculative">
+    <meta name="keywords" content="Architecture, Web Design, Coding">
+    <title>AAID FINALS</title>
+    <!--<base href="https://btjk.github.io/design/" />-->
+    <style>
+      * {box-sizing: border-box;}
+      .img-zoom-lens {
+        position: absolute;
+        border: 1px solid #d4d4d4;
+        /*set the size of the lens:*/
+        width: 40px;
+        height: 40px;
+      }
+
+      .img-zoom-result {
+        border: 1px solid #d4d4d4;
+        /*set the size of the result div:*/
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+
+
+    </script>
+  </head>
+
+  <body class="background">
+    <div class = "mainbox"  style = "padding-left:25%; padding-right:25%; padding-top:1%;">
+      <div style ="display:block;grid-column:span 3;">
+        <div class = "logo" style ="display:flex;float:left;background-image: url('gallery/LOGOS JANUS INDUSTRIES.png');"></div>
+        <div class = "fonttitle" style ="flex-grow:1;">
+          JANUS NEWS
+        </div>
+      </div>
+        <div>
+      </div>
+      <div class = "subbox fontdescription three-one-grid">
+        <div class = "mainbox">
+          <div class = "two-one-grid">Daily Spotlight: Cyberpunk 2077 is out!</div>
+          <div style="right:0px;position:absolute;" id = "current-date"></div>
+          <iframe class = "three-one-grid"width="100%" height=250px; src="https://www.youtube.com/embed/ixl31324UxE" frameborder="0" allow="accelerometer; autoplay=1; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class = "subbox fontdescription">Breaking News</div>
+      <div class = "subbox fontdescription">Opinion</div>
+      <div class = "subbox fontdescription">WEATHER</div>
+
+      <div class = "subbox fontdescription newspanel" onclick="openpopup(0);">
+        <div class = "news-image" style ="background-image: url('gallery/WaifuArticle-01.png');"></div>
+        <div style="grid-row: span 1; border-radius:5px;background-color:rgba(242, 241, 82, 0.1);padding:5px;">
+          <h6>GANWAIFU OF THE MONTH</h6>
+          <p class = "news-description">You want it, we give it! Here are the top GAN waifu. LIMITED STOCKS AVAILABLE!... (Read More)</p>
+        </div>
+      </div>
+
+      <div class = "subbox fontdescription newspanel" onclick="openpopup(1);">
+        <div class = "news-image" style ="background-image: url('gallery/HumanDog-02.png');"></div>
+        <div style="grid-row: span 1; border-radius:5px;background-color:rgba(242, 241, 82, 0.1);padding:5px;">
+          <h6>HUMAN AND DOG, WHAT'S THE DIFFERENCE?</h6>
+          <p class = "news-description">When I was young, I remembered that our family had a pet dog, Trigo. He lived... (Read More)</p>
+        </div>
+      </div>
+
+      <div class = "subbox fontdescription newspanel">
+        <div class = "news-image" style ="background-image: url('gallery/Sunny-10.png');"></div>
+        <div style="grid-row: span 1; border-radius:5px;background-color:rgba(242, 241, 82, 0.1);padding:5px;">
+          <h6>WEATHER</h6>
+          <div class = "news-description">34 Degrees, 10% Humidity</div>
+          <p class = "news-description">Don't forget to purchase the new weather suit!</p>
+        </div>
+      </div>
+
+      <div class = "subbox fontdescription newspanel"onclick="openpopup(2);">
+        <div class = "news-image" style = "background-image: url('gallery/FakeBuildingAxo-08.png');"></div>
+        <div style="grid-row: span 1; border-radius:5px;background-color:rgba(242, 241, 82, 0.1);padding:5px;">
+          <h6>ALL-ANDROID GROUP WINS PRESTIGIOUS ARCHITECTURAL AWARD</h6>
+          <p class = "news-description">“A walk in the park” former winner Kaneda Onagawa admitted... (Read More)</p>
+        </div>
+      </div>
+
+      <div class = "subbox fontdescription newspanel" onclick="openpopup(3);">
+        <div class = "news-image" style = "background-image: url('gallery/WifiMap-05.png');"></div>
+        <div style="grid-row: span 1; border-radius:5px;background-color:rgba(242, 241, 82, 0.1);padding:5px;">
+          <h6>THE INTERNET IS GOOD FOR YOU</h6>
+          <p class = "news-description">Human-Machine interaction leads to higher intelligence, recent study suggests... (Read More)</p>
+        </div>
+      </div>
+
+      <div class = "subbox fontdescription adpanel" style="grid-row: span 3;" onclick="location.href='aaidhackerweb.html';warningalert()">
+        <div class = "ad-image" style = "background-image: url('gallery/Styletransfercloudtv-03.png');grid-row: span 3;"></div>
+      </div>
+        <!--<<div class = "subbox fontdescription adpanel">
+        <img id="myimage" class = "adimage" src="gallery/Styletransfercloudtv.png">
+        <div onclick="location.href='aaidhackerweb.html'" class = "secret_access"> click me for you</div>
+        <div id="myresult" class="img-zoom-result"></div>
+      </div>/>-->
+
+      <div class = "subbox fontdescription newspanel"onclick="openpopup(4);">
+        <div class = "news-image" style = "background-image: url('gallery/eyeaugment.jpg');"></div>
+        <div style="grid-row: span 1; border-radius:5px;background-color:rgba(242, 241, 82, 0.1);padding:5px;">
+          <h6>R.I.P REACHES 11 BILLION USERS</h6>
+          <p class = "news-description">Popular augmentation R.I.P (Retina Image Projection) by Janus Industries has hit a milestone... (Read More)</p>
+        </div>
+      </div>
+
+      <div class = "subbox fontdescription newspanel"onclick="openpopup(5);">
+        <div class = "news-image" style = "background-image: url('gallery/HackerCode-09.png');"></div>
+        <div style="grid-row: span 1; border-radius:5px;background-color:rgba(242, 241, 82, 0.1);padding:5px;">
+          <h6>HACKING: OVERTHROW THE SYSTEM?</h6>
+          <p class = "news-description">The rise of hacking culture here seems to correlate with the increased access to... (Read More)</p>
+        </div>
+      </div>
+
+      </div>
+
+
+    <div class = "news-popup">
+      <span class="close cursor" onclick="closepopup(0)">&times;</span>
+      <div class = "popup-mainbox">
+        <div class = "news-popup-image" style ="background-image: url('gallery/WaifuArticle-01.png');"></div>
+        <div class = "popup-description">
+          <br>
+          <h1 class = "popup-title">GANWAIFU OF THE MONTH</h1>
+          <br>
+          <p class = "popup-para">The 226th edition of GANwaifu is out now! GANwaifu's are generated based on the previous month's record of popular webstores.</p>
+          <p class = "popup-para">Can't decide which to purchase? Why not all? Ganwaifu's are limited to the first 100 customers. 3 variants are released each month so get your hands on one before it's sold out!</p>
+          <p class = "popup-para" onclick="location.href = 'https://www.thiswaifudoesnotexist.net/';">Click here for more info.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class = "news-popup">
+      <span class="close cursor" onclick="closepopup(1)">&times;</span>
+      <div class = "popup-mainbox">
+        <div class = "news-popup-image" style ="background-image: url('gallery/HumanDog-02.png');"></div>
+        <div class = "popup-description">
+          <br>
+          <h1 class = "popup-title">HUMAN AND DOG, WHAT'S THE DIFFERENCE?</h1>
+          <br>
+          <p class = "popup-para">When I was young, I remembered that our family had a pet dog, Trigo. He lived a life worthy of kings; food was served to his nose, we had to bathe him, he lived rent-free. He was a dog living without worries. In fact, that was probably how dogs enjoyed their life.</p>
+          <p class = "popup-para">Fast forward 40 years later. We have replaced these animals as the new dogs of society. What a time to be alive! I say we should be grateful for the opportunities this period of human civilisation has. No longer do we have to worry about our survival as an individual or species.
+            What we can pursue then is the finer things in life; the experience of enjoyment. Life afterall has an expiry. Why suffer when we can live in contentment? If you know whats good for you, live as a dog!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class = "news-popup">
+      <span class="close cursor" onclick="closepopup(2)">&times;</span>
+      <div class = "popup-mainbox">
+        <div class = "news-popup-image" style ="background-image: url('gallery/FakeBuildingAxo-08.png');"></div>
+        <div class = "popup-description">
+          <br>
+          <h1 class = "popup-title">ALL-ANDROID GROUP WINS PRESTIGIOUS ARCHITECTURAL AWARD</h1>
+          <br>
+          <p class = "popup-para">"A walk in the park” former winner Kaneda Onagawa admitted on Sunday as the award was handed to android team 84. The team proposed high density living within structures of the building itself. This saves usuable space since the structural support becomes a living space. The award
+                                    was decided by the panel of executives from JANUS Industries, who have a wealth of experience in the construction industry.</p>
+          <p class = "popup-para">Plans to test this idea is currently underway and residents of JANUS BLK 55 will enjoy the opportunity to be the first in the world to live in it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class = "news-popup">
+      <span class="close cursor" onclick="closepopup(3)">&times;</span>
+      <div class = "popup-mainbox">
+        <div class = "news-popup-image" style ="background-color:rgba(36, 36, 36,0.90);background-image: url('gallery/WifiMap-05.png');"></div>
+        <div class = "popup-description">
+          <br>
+          <h1 class = "popup-title">THE INTERNET IS GOOD FOR YOU</h1>
+          <br>
+          <p class = "popup-para">Online interaction leads to higher intelligence, recent study suggests. Conducted in JAMUS Tower B's Intelligence Lab, the experiement lasted 10 years with approximately 10 million people involved. Data collected in this experiment was done through the monitoring of human behaviours online.</p>
+          <p class = "popup-para">Those who use the internet more than 60 hours per week tend to show signs of improved cognition ability and are able to handle more complex tasks. "This is good news because that means that what we have set up here is working for us humans" Thomas Keffer, head of UX/UI of JAMUS Internet.
+          Generally, JAMUS UI/UX recommends that users spend time on the internet for at least 65 hours for tangible improvements to be seen. JAMUS also noted that those who perform poorly tend to be the post-amish regions of the city. Nevertheless, the experiment paves way for more infrastructure to be set up in these areas to provide regular access for the citizens.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class = "news-popup">
+      <span class="close cursor" onclick="closepopup(4)">&times;</span>
+      <div class = "popup-mainbox">
+        <div class = "news-popup-image" style ="background-image: url('gallery/eyeaugment.jpg');"></div>
+        <div class = "popup-description">
+          <br>
+          <h1 class = "popup-title">R.I.P REACHES 11 BILLION USERS</h1>
+          <br>
+          <p class = "popup-para">Popular augmentation R.I.P (Retina Image Projection) by Janus Industries has hit a milestone of 11 billion users. Released 5 years ago, the popular augmentation adds a new layer of reality into the daily lives of individuals. No longer do people have to face the monotonous reality.</p>
+          <p class = "popup-para">'R.I.P was conceived to create a more colourful world for all. According to what one desires to see.' CFO Truman remarked. The company still plans to expand the usage of the product around the world. It is expected to acheive 95% usage before 2065.
+        </div>
+      </div>
+    </div>
+
+    <div class = "news-popup">
+      <span class="close cursor" onclick="closepopup(5)">&times;</span>
+      <div class = "popup-mainbox">
+        <div class = "news-popup-image" style ="background-color: rgba(0, 0, 0, 0.7);background-image: url('gallery/HackerCode-09.png');"></div>
+        <div class = "popup-description">
+          <br>
+          <h1 class = "popup-title">HACKING: OVERTHROW THE SYSTEM?</h1>
+          <br>
+          <p class = "popup-para">The rise of hacking culture here seems to correlate with the increased access to the dark web. There was a 35% increase of users accessing these sites from the past year. More often than not, the sites cloak themselves in the guise of advertisements and lure unsuspecting users of the internet into the sites.</p>
+          <p class = "popup-para">"The dark web has always been a fertile ground to for hacking activities to be conducted. Users who unknowingly enter might be radicalised by the ideas existing there and become dangerous individuals for society." Reknowed internet anthropologist Kimmy Hudson reminded us in view of the recent hack attack by the radical left group Renew which left large parts
+             of the city disfunctional in the morning of January 4 2058. "These groups advocate for the overthrowing of the current economic system which is existing for 4 decades and has saved the world from a global environmental disaster. Do we want to revert back to the disasterous environmental conditions that our predecessors suffered under?"</p>
+          <p class = "popup-para">If one should find themselves in these sites, these websites can be reported at JamusSecurity.org.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+
+    document.body.className += ' fade-out';
+
+    $(function() {
+        $('body').removeClass('fade-out');
+    });
+
+    document.body.className += ' fade-out';
+
+    $(function() {
+        $('body').removeClass('fade-out');
+    });
+    </script>
+
+    <script>
+    function openpopup(n) {
+      popups = document.getElementsByClassName("news-popup");
+      popups[n].style.display = "block";
+    }
+
+    function closepopup() {
+      popups = document.getElementsByClassName("news-popup");
+      for (i = 0; i < popups.length; i++) {
+        popups[i].style.display = "none";
+      }
+
+    }
+    </script>
+    <script>
+      var date = new Date().getDate();
+      var month = new Date().getMonth();
+      var year = new Date().getFullYear() + 40;
+      document.getElementById("current-date").innerHTML = date + "-" + month + "-" + year;
+    </script>
+    <script>
+    function warningalert(){
+      alert("You are going to a potentially dangerous site! Would you like to proceed?")
+    }
+    </script>
+   </body>
+</html>
