@@ -13,7 +13,7 @@ p {
 
 .base {
     margin: auto;
-    background-color: red;
+    background-color: rgb(222, 222, 222);
     height: 1080px;
     width: 1920px;
     display: none;
@@ -102,15 +102,19 @@ p {
   appearance: none;
   width: 25px;
   height: 25px;
-  background: #04AA6D;
+  background: #000000;
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  background: #04AA6D;
+  background: #000000;
   cursor: pointer;
+}
+
+.slider:hover{
+    transform:scale(1.05,1.05);
 }
 
 .A {
@@ -187,7 +191,7 @@ p {
     position: relative;
     height:100%;
     width:100%;
-    background-image: url('gallery/BG Scenario B Leduc.jpg');
+    background-image: url('gallery/BG Scenario B Leduc.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-color: white;
@@ -253,6 +257,36 @@ p {
     background-color: white;
 }
 
+.scene_final_A {
+    position: relative;
+    height:100%;
+    width:100%;
+    background-image: url('gallery/RUSKIN_HAPPY.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+.scene_final_B {
+    position: relative;
+    height:100%;
+    width:100%;
+    background-image: url('gallery/BOTH_SAD.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+.scene_final_C {
+    position: relative;
+    height:100%;
+    width:100%;
+    background-image: url('gallery/RUSKIN_SAD.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
 .frame {
     top: -100%;
     height:100%;
@@ -287,22 +321,22 @@ p {
 
 .ruskin-happy {
   top:-100%;
-  background-image: url('gallery/Ruskin_Happy2.png');
+  background-image: url('gallery/Ruskin_Happy2.gif');
 }
 
 .leduc-happy {
   top:-100%;
-  background-image: url('gallery/Leduc_Happy2.png');
+  background-image: url('gallery/Leduc_Happy2.gif');
 }
 
 .ruskin-sad {
   top:-100%;
-  background-image: url('gallery/Ruskin_Sad2.png');
+  background-image: url('gallery/Ruskin_Sad2.gif');
 }
 
 .leduc-sad {
   top:-100%;
-  background-image: url('gallery/Leduc_Sad2.png');
+  background-image: url('gallery/Leduc_Sad2.gif');
 }
 
 .op-1-A {
@@ -353,17 +387,21 @@ p {
 
 .button {
     height:6%;
-    width:6%;
+    width:8%;
     margin:10px;
     position:absolute;
     bottom:0;
     right:0;
-    background-color:rgb(103, 168, 245);
+    background-color:rgb(255, 255, 255);
     text-align:center;
     border-radius: 15px;
     border-width:medium;
     border-style:solid;
     border-color:black;
+}
+
+.button:hover{
+    transform:scale(1.1,1.1);
 }
 
 .button div {

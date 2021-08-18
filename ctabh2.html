@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="President Fishtank">
-    <meta name="description" content="Architecture, Web Design, Coding etc, Jack of All Trades, Master of None">
+    <meta name="description" content="Architecture, Conservation Theories and Approaches of Built Heritage, 2021">
     <meta name="keywords" content="President Fishtank, Architecture, Web Design, Coding">
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
@@ -19,7 +19,7 @@
   <body class = "overall-background">
       <div class = "container">
           <div class = "base" style = "display:block;">
-              <div class = "intro_bg" onclick = "nextTxt(0); typeAnimation('conv_0'); nextSubScene(0);">Intro Scene</div>
+              <div class = "intro_bg" onclick = " nextSubScene(0); playAudio('gallery/Doki Doki Literature Club! - Your Reality - EASY Piano Tutorial.mp3');nextTxt(0); typeAnimation('conv_0');"></div>
               <div class = "Overlay convo" style = "top:-100%;">
                   <div class = "txt-container text" style = "display:block;" onclick = "nextTxt(1); typeAnimation('conv_1');">
                       <div class = "txt">
@@ -134,7 +134,7 @@
 
           <!--Scene B-->
           <div class = "base" style = "">
-              <div class = "scene_B" onclick = "nextTxt(14); typeAnimation('conv_14'); nextSubScene(7);"></div>
+              <div class = "scene_B" onclick = "nextSubScene(7);nextTxt(14); typeAnimation('conv_14');"></div>
               <div class = "Overlay convo" style = "top:-100%;">
                   <div class = "txt-container text" style = "display:block;" onclick = "nextTxt(15); typeAnimation('conv_15');">
                       <div class = "txt">
@@ -232,7 +232,7 @@
 
           <!--Scene C-->
           <div class = "base" style = "">
-              <div class = "scene_C" onclick = "nextTxt(25); typeAnimation('conv_25'); nextSubScene(14);"></div>
+              <div class = "scene_C" onclick = "nextSubScene(14);nextTxt(25); typeAnimation('conv_25'); "></div>
               <div class = "Overlay convo" style = "top:-100%;">
                   <div class = "txt-container text" style = "display:block;" onclick = "nextTxt(26); typeAnimation('conv_26');">
                       <div class = "txt">
@@ -325,7 +325,7 @@
 
           <!--Scene D-->
           <div class = "base" style = "">
-              <div class = "scene_D" onclick = "nextTxt(35); typeAnimation('conv_35'); nextSubScene(21);"></div>
+              <div class = "scene_D" onclick = "nextSubScene(21);nextTxt(35); typeAnimation('conv_35'); "></div>
               <div class = "Overlay convo" style = "top:-100%;">
                   <div class = "txt-container text" style = "display:block;" onclick = "nextTxt(36); typeAnimation('conv_36');">
                       <div class = "txt">
@@ -434,7 +434,7 @@
 
           <!--FINAL OUTCOME-->
           <div class = "base" style = "">
-              <div class = "scene_D" onclick = "nextTxt(48); typeAnimation('conv_48'); nextSubScene(28);"></div>
+              <div class = "scene_final_A" onclick = "nextSubScene(28);nextTxt(48); typeAnimation('conv_48'); "></div>
               <div class = "Overlay convo" style = "top:-100%;">
                   <div class = "txt-container text" style = "display:block;" onclick = "nextTxt(49); typeAnimation('conv_49');">
                       <div class = "txt">
@@ -460,7 +460,7 @@
           </div>
 
           <div class = "base" style = "">
-              <div class = "scene_D" onclick = "nextTxt(52); typeAnimation('conv_52'); nextSubScene(29);"></div>
+              <div class = "scene_final_B" onclick = "nextSubScene(29);nextTxt(52); typeAnimation('conv_52'); "></div>
               <div class = "Overlay convo" style = "top:-100%;">
                   <div class = "txt-container text" style = "display:block;" onclick = "nextTxt(53); typeAnimation('conv_53');">
                       <div class = "txt">
@@ -486,7 +486,7 @@
           </div>
 
           <div class = "base" style = "">
-              <div class = "scene_D" onclick = "nextTxt(56); typeAnimation('conv_56'); nextSubScene(30);"></div>
+              <div class = "scene_final_C" onclick = "nextSubScene(30);nextTxt(56); typeAnimation('conv_56'); "></div>
               <div class = "Overlay convo" style = "top:-100%;">
                   <div class = "txt-container text" style = "display:block;" onclick = "nextTxt(57); typeAnimation('conv_57');">
                       <div class = "txt">
@@ -513,7 +513,7 @@
 
           <!--Credits-->
           <div class = "base" style = "">
-              <div class = "scene_D">
+              <div class = "" style="padding:25px;">
                   <p style = "font-size:50px">Thank you for playing!</p>
                   <p style = "font-size:25px">Made by Benedict Tan | Heong Kheng Boon | Wesley Koh | Gwee Charlene | Nidhi Hegde</p>
               </div>
@@ -522,6 +522,11 @@
 
       </div>
       <script>
+          function playAudio(url) {
+              new Audio(url).play();
+              console.log("playing music")
+            }
+
 
           var i = 0;
           var speed = 10;
