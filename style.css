@@ -95,7 +95,7 @@ body, html {
 
 .description_panel{
   font-family: 'Cantarell', sans-serif;
-  grid-column: span 2;
+  grid-column: span 3;
   max-width: 100%;
 }
 .description-box2{
@@ -222,7 +222,7 @@ body, html {
   position:absolute;
   display: grid;
   grid-template-columns: 240px 240px 240px;
-  grid-template-rows: 140px 140px 140px 140px;
+  grid-template-rows: 140px 140px 140px 140px 140px;
   grid-gap: 2%;
   left:50%;
   top:45%;
@@ -255,6 +255,19 @@ body, html {
   border-radius: 10px;
   height:100%;
   background: url(gallery/HighresScreenshot00072.jpg);
+  background-color: black;
+  background-size: 100%,100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: crosshair;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.prof-img-nature {
+  border-radius: 10px;
+  height:100%;
+  background: url(gallery/GovPlan.jpg);
   background-color: black;
   background-size: 100%,100%;
   background-repeat: no-repeat;
@@ -365,7 +378,7 @@ body, html {
   filter: grayscale(100%);
 }
 
-.prof-img-rehab:hover, .prof-img-leafy:hover, .prof-img-machine-crafted:hover, .prof-img-beyond14:hover, .prof-img-gulu:hover, .prof-img-crescendo:hover, .prof-img-crescendo:hover, .prof-img-cloud10:hover, .prof-img-points:hover, .prof-img-yaqzan:hover, .prof-img-cyborg:hover {
+.prof-img-rehab:hover, .prof-img-leafy:hover, .prof-img-machine-crafted:hover, .prof-img-beyond14:hover, .prof-img-gulu:hover, .prof-img-crescendo:hover, .prof-img-crescendo:hover, .prof-img-cloud10:hover, .prof-img-points:hover, .prof-img-yaqzan:hover, .prof-img-cyborg:hover, .prof-img-nature:hover {
   filter: none;
   -webkit-filter: grayscale(0%);
 }
