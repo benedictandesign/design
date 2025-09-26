@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
+  />
+  <link rel="stylesheet" href="../workstyle.css" />
+
+  <title>Machine Crafted</title>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="../../index.html" id="logo">
+        BTJK
+      </a>
+    </div>
+  </header>
+
+  <main class="project-page">
+    <section class="project-hero">
+      <img
+        src="../assets/portfolio/Machine Learning Portfolio-01.png"
+      />
+    </section>
+
+    <section class="project-info">
+      <h1 class="project-title">Machine Craft</h1>
+      <div class="project-details">
+        <p class="project-description">
+          Minecraft is a platform where users are free to build anything from realistic to imaginative structures. 
+          <br><br>
+          This project aims to explore the use of machine learning to generate a 3D model of buildings and exploring the design space, thereby discovering both familiar and new architectural forms.
+        </p>
+        <ul class="project-meta">
+          <li><strong>Year:</strong><br />2019</li>
+          <li>
+            <strong>Team:</strong><br />
+            Benedict Tan<br />
+            Maythinzar Lin
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Machine Learning Portfolio-02.png" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Machine Learning Portfolio-03.png" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Machine Learning Portfolio-04.png" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Machine Learning Portfolio-05.png" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Machine Learning Portfolio-06.png" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Machine Learning Portfolio-07.png" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Machine Learning Portfolio-08.png" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Machine Learning Portfolio-09.png" alt="" />
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+  <script>
+    class GlideGallery extends HTMLElement {
+      connectedCallback() {
+        // parse attributes
+        let images = [];
+        try {
+          images = JSON.parse(this.getAttribute('images'));
+        } catch {
+          images = this.getAttribute('images').split(',');
+        }
+
+        // build the carousel markup
+        const section = document.createElement('section');
+        section.className = 'project-carousel';
+        section.innerHTML = `
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                ${images
+                  .map(
+                    src =>
+                      `<li class="glide__slide"><img src="${src.trim()}" alt=""></li>`
+                  )
+                  .join('')}
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">‹</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">›</button>
+            </div>
+          </div>
+        `;
+
+        // attach it
+        this.appendChild(section);
+
+        // mount Glide on this carousel
+        new Glide(section.querySelector('.glide'), {
+          type: 'carousel',
+          startAt: 0,
+          perView: 1,
+          focusAt: 'center',
+          gap: 5,
+          peek: { before: 0, after: 0 },
+          animationDuration: 400,
+          hoverpause: true,
+          keyboard: true
+        }).mount();
+      }
+    }
+    customElements.define('glide-gallery', GlideGallery);
+  </script>
+</body>
+</html>

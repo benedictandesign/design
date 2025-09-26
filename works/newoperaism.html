@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
+  />
+
+  <title>New Operaism</title>
+  <link rel="stylesheet" href="../workstyle.css" />
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="../../index.html" id="logo">
+        BTJK
+      </a>
+    </div>
+  </header>
+
+  <main class="project-page">
+    <section class="project-hero">
+      <img src="../assets/portfolio/Cyborg Natures-01.jpg" alt="" />
+    </section>
+
+    <section class="project-info">
+      <h1 class="project-title">New Operaism</h1>
+      <div class="project-details">
+        <p class="project-description">
+          The project explores new ways that humans can operate within the deepening anthropocene, challengine the ontological positions that take for granted a benevolent nature. Examining the social-political and environmental conditions surrounding exploited workers in Thailand's waste industry, the project addresses the 2-fold conundrum of the vulnerability of coastal settlements to rising sea levels as well as the issue of undocumented workers.
+        </p>
+        <ul class="project-meta">
+            <li><strong>Year:</strong> <br>2020</li>
+            <li>
+                <strong>Team:</strong><br>
+                Ian Soon<br>
+                Benedict Tan
+            </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Cyborg Natures-02.jpg" alt="" />
+    </section>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/Cyborg Natures-03.jpg",
+        "../assets/portfolio/Cyborg Natures-04.jpg",
+        "../assets/portfolio/Cyborg Natures-05.jpg",
+        "../assets/portfolio/Cyborg Natures-06.jpg",
+        "../assets/portfolio/Cyborg Natures-07.jpg"
+      ]'
+    ></glide-gallery>
+
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Cyborg Natures-08.jpg" alt="" />
+    </section>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/Cyborg Natures-09.jpg",
+        "../assets/portfolio/Cyborg Natures-13.jpg",
+        "../assets/portfolio/Cyborg Natures-14.jpg",
+        "../assets/portfolio/Cyborg Natures-15.jpg",
+        "../assets/portfolio/Cyborg Natures-16.jpg"
+      ]'
+    ></glide-gallery>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/Cyborg Natures-11.jpg",
+        "../assets/portfolio/Cyborg Natures-21.jpg",
+        "../assets/portfolio/Cyborg Natures-22.jpg",
+        "../assets/portfolio/Cyborg Natures-23.jpg",
+        "../assets/portfolio/Cyborg Natures-24.jpg",
+        "../assets/portfolio/Cyborg Natures-25.jpg"
+      ]'
+    ></glide-gallery>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/Cyborg Natures-30.jpg",
+        "../assets/portfolio/Cyborg Natures-26.jpg",
+        "../assets/portfolio/Cyborg Natures-27.jpg",
+        "../assets/portfolio/Cyborg Natures-28.jpg",
+        "../assets/portfolio/Cyborg Natures-29.jpg"
+      ]'
+    ></glide-gallery>
+
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Cyborg Natures-31.jpg" alt="" />
+    </section>
+
+    <section class="video-showcase">
+      <iframe
+        src="https://www.youtube.com/embed/6pD25V5iIsI?si=hH2HzWLg-n5tIfyw"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </section>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/Cyborg Natures-33.jpg",
+        "../assets/portfolio/Cyborg Natures-18.jpg",
+        "../assets/portfolio/Cyborg Natures-19.jpg",
+        "../assets/portfolio/Cyborg Natures-20.jpg",
+        "../assets/portfolio/Cyborg Natures-34.jpg",
+        "../assets/portfolio/Cyborg Natures-12.jpg"
+      ]'
+    ></glide-gallery>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+  <script>
+    class GlideGallery extends HTMLElement {
+      connectedCallback() {
+        // parse attributes
+        let images = [];
+        try {
+          images = JSON.parse(this.getAttribute('images'));
+        } catch {
+          images = this.getAttribute('images').split(',');
+        }
+
+        // build the carousel markup
+        const section = document.createElement('section');
+        section.className = 'project-carousel';
+        section.innerHTML = `
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                ${images
+                  .map(
+                    src =>
+                      `<li class="glide__slide"><img src="${src.trim()}" alt=""></li>`
+                  )
+                  .join('')}
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">‹</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">›</button>
+            </div>
+          </div>
+        `;
+
+        // attach it
+        this.appendChild(section);
+
+        // mount Glide on this carousel
+        new Glide(section.querySelector('.glide'), {
+          type: 'carousel',
+          startAt: 0,
+          perView: 1,
+          focusAt: 'center',
+          gap: 5,
+          peek: { before: 0, after: 0 },
+          animationDuration: 400,
+          hoverpause: true,
+          keyboard: true
+        }).mount();
+      }
+    }
+    customElements.define('glide-gallery', GlideGallery);
+  </script>
+</body>
+</html>

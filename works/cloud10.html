@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
+  />
+  <link rel="stylesheet" href="../workstyle.css" />
+
+  <title>Cloud 10</title>
+</head>
+<body style="background-color: #ffffff;">
+  <header>
+    <div class="header-container">
+      <a href="../../index.html" id="logo">
+        BTJK
+      </a>
+    </div>
+  </header>
+
+  <main class="project-page">
+    <section class="project-hero">
+      <img src="../assets/portfolio/CompressCapture.jpg" alt="" />
+    </section>
+
+    <section class="project-info">
+      <h1 class="project-title">Cloud 10</h1>
+      <div class="project-details">
+        <p class="project-description">
+          <strong>A time when death no longer exists:</strong><br>
+          What then is the meaning of eternity, the human body’s relation to the heart? Is the sanctity of human life perverted?
+          <br><br>
+          <strong>The digitalisation of the human experience:</strong><br>
+          Memories as a perceived experience. Does it have a place in our physical domain? Is there still relevancy for the material in the face of digital stimulus?
+          <br><br>
+          <strong>The Proto-Cemetery:</strong><br>
+          To remember the departed. Can it exist meaningfully in such a world?
+          <br><br>
+          A time where death is no more. Societies’ notion of time is stretched, hence the Ageless are wandering beings living life without rush. The feelings that they possess are also dulled over time. This absence of intense feelings makes them long for it. Conquering death, they do not fear it, but rather longed to feel what those who are aware of this impending fate that had faced them felt during their lifetime. <br><br> A place to remember the dead at a time when death ceases, Cloud 10 serves as a place to remember and revere those who died living a fast-paced life. Without the efforts of their predecessors, death would still be rampant. Like the Tower of Babylon, Cloud 10 rests atop the city for all to see this trophy signifying the conquering of death.
+        </p>
+        <ul class="project-meta">
+          <li><strong>Year:</strong><br />2019</li>
+          <li>
+            <strong>Team:</strong><br />
+            Benedict Tan
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Network Diagram Portfolio.png" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Possible Forms.png" alt="" />
+    </section>
+
+    <section class="video-showcase">
+      <iframe
+        width="1280"
+        height="720"
+        src="https://www.youtube.com/embed/_Liw_pHpCSg"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </section>
+
+    <section class="image-showcase">
+      <img src="../assets/portfolio/SitePlan Cloud10.png" alt="" />
+    </section>
+
+    <section class="video-showcase">
+      <iframe
+        width="1280"
+        height="720"
+        src="https://www.youtube.com/embed/3k3EEHNoQmQ"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </section>
+
+    <section class="video-showcase">
+      <iframe
+        width="1280"
+        height="720"
+        src="https://www.youtube.com/embed/7WnmEhBBpSE"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </section>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/CompressCapture20.jpg",
+        "../assets/portfolio/CompressCapture18.jpg",
+        "../assets/portfolio/CompressCapture16.jpg",
+        "../assets/portfolio/CompressCapture17.jpg",
+        "../assets/portfolio/CompressCapture19.jpg",
+        "../assets/portfolio/CompressCapture29.jpg",
+        "../assets/portfolio/CompressCapture21.jpg",
+        "../assets/portfolio/CompressCapture22.jpg",
+        "../assets/portfolio/CompressCapture23.jpg",
+        "../assets/portfolio/CompressCapture24.jpg"
+      ]'
+    ></glide-gallery>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/CompressCapture9.jpg",
+        "../assets/portfolio/CompressCapture10.jpg",
+        "../assets/portfolio/CompressCapture11.jpg",
+        "../assets/portfolio/CompressCapture12.jpg",
+        "../assets/portfolio/CompressCapture13.jpg",
+        "../assets/portfolio/CompressCapture14.jpg",
+        "../assets/portfolio/CompressCapture15.jpg"
+      ]'
+    ></glide-gallery>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/CompressCapture.jpg",
+        "../assets/portfolio/CompressCapture2.jpg",
+        "../assets/portfolio/CompressCapture3.jpg",
+        "../assets/portfolio/CompressCapture4.jpg",
+        "../assets/portfolio/CompressCapture5.jpg",
+        "../assets/portfolio/CompressCapture6.jpg",
+        "../assets/portfolio/CompressCapture7.jpg",
+        "../assets/portfolio/CompressCapture8.jpg"
+      ]'
+    ></glide-gallery>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+  <script>
+    class GlideGallery extends HTMLElement {
+      connectedCallback() {
+        // parse attributes
+        let images = [];
+        try {
+          images = JSON.parse(this.getAttribute('images'));
+        } catch {
+          images = this.getAttribute('images').split(',');
+        }
+
+        // build the carousel markup
+        const section = document.createElement('section');
+        section.className = 'project-carousel';
+        section.innerHTML = `
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                ${images
+                  .map(
+                    src =>
+                      `<li class="glide__slide"><img src="${src.trim()}" alt=""></li>`
+                  )
+                  .join('')}
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">‹</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">›</button>
+            </div>
+          </div>
+        `;
+
+        // attach it
+        this.appendChild(section);
+
+        // mount Glide on this carousel
+        new Glide(section.querySelector('.glide'), {
+          type: 'carousel',
+          startAt: 0,
+          perView: 1,
+          focusAt: 'center',
+          gap: 5,
+          peek: { before: 0, after: 0 },
+          animationDuration: 400,
+          hoverpause: true,
+          keyboard: true
+        }).mount();
+      }
+    }
+    customElements.define('glide-gallery', GlideGallery);
+  </script>
+</body>
+</html>

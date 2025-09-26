@@ -1,0 +1,202 @@
+/* styles.css */
+/* reset */
+body {
+  margin: 0;
+  overflow: hidden;
+}
+canvas {
+  display: block;
+  /* NEW: Add a transition for the filter property */
+  transition: filter 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ─── NEW BOTTOM NAVIGATION BAR ────────────────────────────────────────── */
+#bottom-nav {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  background-color: #000000;
+  border-radius: 50px; /* Pill shape */
+  padding: 5px;
+  z-index: 1002;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  user-select: none;
+}
+
+.nav-link {
+  padding: 10px 25px;
+  font-family: "Anta", sans-serif;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  z-index: 2; /* Ensures text is above the slider */
+  transition: color 0.4s ease;
+}
+
+/* Style for the text of the active link */
+.nav-link.active {
+  color: #404040; /* Changes text color to purple to be visible on the white slider */
+}
+
+#nav-slider {
+  position: absolute;
+  top: 5px;
+  left: 5px; /* Initial position */
+  height: calc(100% - 10px);
+  background-color: white;
+  border-radius: 50px; /* Pill shape */
+  z-index: 1;
+  /* The magic transition for the sliding effect */
+  transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ─── OVERLAY & VIEWPORT ───────────────────────────────────────────── */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18,18,18,0.1);
+  overflow: hidden;
+  isolation: isolate;
+  z-index: 90; /* behind HUD but above canvas */
+}
+#overlay.hidden {
+  display: none;
+}
+
+#overlay-viewport {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2800px;
+  height: 1600px;
+  transform-origin: 0 0;
+  cursor: grab;
+  backdrop-filter: blur(7px);
+  z-index: 91; /* just above the overlay’s background */
+    /* ————— GRID PATTERN ————— */
+  background-image:
+    /* vertical lines */
+    repeating-linear-gradient(
+      to right,
+      rgba(148, 148, 148, 0.2) 0,
+      rgba(148, 148, 148, 0.2) 1px,
+      transparent 1px,
+      transparent 50px
+    ),
+    /* horizontal lines */
+    repeating-linear-gradient(
+      to bottom,
+      rgba(148, 148, 148, 0.2) 0,
+      rgba(148, 148, 148, 0.2) 1px,
+      transparent 1px,
+      transparent 50px
+    );
+  background-size: 50px 50px; /* spacing of your grid lines */
+}
+
+/* ─── demo sticky notes ────────────────────────────────────────────── */
+.note {
+  position: absolute;
+  width: 200px;
+  padding: 18px 16px;
+  font-size: 18px;
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 45px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.35);
+  pointer-events: none;
+}
+.note.black   { background: rgb(0, 0, 0);  color: #fff; }
+.note.blue   { background: #0af;  color: #fff; }
+.note.pink   { background: #f36;  color: #fff; }
+.note.yellow { background: #fd4;  color: #222; }
+
+/* Make specific notes interactive (e.g., icon links) */
+.note.clickable { pointer-events: auto; }
+.note .connect-icons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 6px;
+}
+.note .connect-icons a {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  color: #ffffff;
+  text-decoration: none;
+}
+.note .connect-icons a:hover { color: #bdbdbd; }
+.note .connect-icons svg { width: 100%; height: 100%; display: block; }
+/* Force white fill to ensure visibility regardless of UA styles */
+.note .connect-icons svg, .note .connect-icons svg path { fill: #ffffff !important; stroke: none !important; }
+
+/* ─── project cards ───────────────────────────────────────── */
+.project-card {
+  position: absolute;
+  width: 300px;
+  background: rgb(0, 0, 0);
+  border: 3px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.25);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,.3);
+}
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.project-card-content {
+  color: #cacaca;
+  font-family: 'Segoe UI', sans-serif;
+  /* MODIFICATION: Transition max-height for a smooth reveal */
+  max-height: 0;
+  opacity: 0;
+  padding: 0 15px;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              opacity 0.3s ease-in-out,
+              padding 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+/* MODIFICATION: On hover, expand the content area */
+.project-card:hover .project-card-content {
+  max-height: 100px; /* A value larger than the content's expected height */
+  opacity: 1;
+  padding: 15px;
+}
+.project-card-title {
+  font-size: 20px;
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0 0 10px 0;
+  color: #cacaca;
+}
+.project-card-type {
+  font-size: 14px;
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #727272;
+  margin: 0;
+}
+
+/* ─── Section Panels ───────────────────────────────────────── */
+.section-panel {
+  position: absolute;
+  border: 4px dotted #4b4b4b;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.3);
+  pointer-events: none; /* Allows clicking through the panel */
+}

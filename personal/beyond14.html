@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
+  />
+  <link rel="stylesheet" href="../workstyle.css" />
+
+  <title>Beyond 14!</title>
+</head>
+<body style="background-color: #ffffff;">
+  <header>
+    <div class="header-container">
+      <a href="../../index.html" id="logo">
+        BTJK
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../works.html">Works</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="project-page">
+    <section class="project-hero">
+      <img
+        src="../assets/portfolio/Portfolio Website27.jpg"
+      />
+    </section>
+
+    <section class="project-info">
+      <h1 class="project-title">Beyond 14!</h1>
+      <div class="project-details">
+        <p class="project-description">
+          Spaces as composition of a scene in a photograph; some spaces become the subject, while others are the backdrop. Where photos capture a moment in time, the experience of architecture is a composition of moments in volumetric space.
+          <br><br>
+          Given 14 spaces that are related to each other in a visual network system, there are numerous ways to compose the spaces together.
+          <br><br>
+          By defining the location and rotation of these sapces, there are countless ways to create the desired netork of spaces.
+          <br><br>
+          Machine learning was used to explore the solution space of possible arrangements that offers visual optimisation of the network.
+        </p>
+        <ul class="project-meta">
+          <li><strong>Year:</strong><br />2018</li>
+          <li>
+            <strong>Team:</strong><br />
+            Benedict Tan
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Portfolio Website24.jpg" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Portfolio Website25.jpg" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Portfolio Website26.jpg" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Portfolio Website27.jpg" alt="" />
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+  <script>
+    class GlideGallery extends HTMLElement {
+      connectedCallback() {
+        // parse attributes
+        let images = [];
+        try {
+          images = JSON.parse(this.getAttribute('images'));
+        } catch {
+          images = this.getAttribute('images').split(',');
+        }
+
+        // build the carousel markup
+        const section = document.createElement('section');
+        section.className = 'project-carousel';
+        section.innerHTML = `
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                ${images
+                  .map(
+                    src =>
+                      `<li class="glide__slide"><img src="${src.trim()}" alt=""></li>`
+                  )
+                  .join('')}
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">‹</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">›</button>
+            </div>
+          </div>
+        `;
+
+        // attach it
+        this.appendChild(section);
+
+        // mount Glide on this carousel
+        new Glide(section.querySelector('.glide'), {
+          type: 'carousel',
+          startAt: 0,
+          perView: 1,
+          focusAt: 'center',
+          gap: 5,
+          peek: { before: 0, after: 0 },
+          animationDuration: 400,
+          hoverpause: true,
+          keyboard: true
+        }).mount();
+      }
+    }
+    customElements.define('glide-gallery', GlideGallery);
+  </script>
+</body>
+</html>

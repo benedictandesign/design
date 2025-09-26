@@ -1,0 +1,229 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+    }
+    /* --- Header setup --- */
+    header {
+      position: fixed;         /* keep it always on top */
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    /* container to center & space items */
+    .header-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* logo left, nav right */
+      padding: 20px 10px 20px;
+    }
+
+    /* Logo styling */
+    .logo img {
+      height: 40px;            /* adjust as needed */
+      display: block;
+    }
+
+    /* Nav links on the right */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      color: #cacaca;
+      text-decoration: none;
+      font-size: 1.5em;
+      transition: opacity .2s;
+    }
+
+    .nav-links li a:hover {
+      opacity: 0.7;
+    }
+
+    /* remove all padding from project-page */
+    main.project-page {
+      max-width: 1080px;
+      margin: auto;
+      padding: 0;
+      padding-bottom: 80px;
+    }
+
+    .project-page {
+      max-width: 1080px;
+      margin: auto;
+      padding: 0px;
+    }
+
+    /* 1) Hero wrapper: remove fixed height */
+    .project-hero {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    height: auto;            /* instead of 100vh */
+    }
+
+    /* 2) Image: drop absolute positioning, use width:100% & height:auto */
+    .project-hero img {
+    position: relative;      /* instead of absolute */
+    display: block;          /* remove inline gap, if any */
+    width: 100%;             /* full width of wrapper */
+    height: auto;            /* automatic height based on aspect ratio */
+    object-fit: cover;       /* optional—won’t crop since height:auto */
+    object-position: top center;
+    }
+
+    /* --- Project Info --- */
+    .project-info {
+      margin-top: 20px;
+    }
+    .project-info .project-title {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #cacaca;
+      text-align: center;
+    }
+    .project-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+    .project-description {
+      font-size: 1.2em;
+      color: #a5a5a5;
+      width: 60%;
+      text-align: left;
+    }
+    .project-meta {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;  /* now they’ll all sit flush to the left */
+    text-align: left;         /* just in case */
+    gap: 10px;
+    padding: 0;
+    color: #a5a5a5;
+    width: 35%;
+    }
+    .project-meta li strong {
+      display: inline-block;
+      width: 90px;
+    }
+
+    .image-showcase,
+    .video-showcase {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .image-showcase img,
+    .image-showcase video {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      display: block;
+    }
+    .video-showcase iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      border-radius: 4px;
+    }
+    .glide__slide img {
+      height: var(--gallery-img-height, 600px);
+      width: auto;
+      object-fit: contain;
+      display: block;
+        margin: 0 auto;
+    }
+
+    .project-carousel .glide__arrow {
+      background-color: #000;
+      color: #fff;           /* keep the arrow glyph visible */
+      border-color: #000;
+    }
+
+    .project-carousel .glide__arrow:hover,
+    .project-carousel .glide__arrow:focus {
+      background-color: #111;
+      border-color: #111;
+    }
+    glide-gallery {
+      display: block;      /* custom elements default to inline, so make it block */
+      margin-top: 40px;    /* adjust this value to taste */
+    }
+
+    #logo {
+      font-size: 1.5em;
+      color: #8f8f8f;
+      text-decoration: none;
+    }
+
+/* ==========================================================================
+   Responsive Styles (for screens smaller than 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  main.project-page {
+    padding-bottom: 15px;
+  }
+
+  /* NEW: Make hero section taller */
+  .project-hero {
+    height: 50vh;
+  }
+  .project-hero img {
+    height: 100%;
+  }
+
+  main.project-page {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 120px; /* Add padding to prevent overlap with fixed header */
+  }
+
+  .project-details {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .project-description,
+  .project-meta {
+    width: 100%;
+  }
+
+  .project-info .project-title {
+    font-size: 1.5em;
+  }
+
+  .project-description {
+    font-size: 1em;
+  }
+
+  /* NEW: Force landscape aspect ratio for gallery */
+  .glide__slide {
+    aspect-ratio: 16 / 9;
+  }
+
+  .glide__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This will fill the container, cropping if needed */
+    max-height: none;  /* Remove previous constraint */
+  }
+}

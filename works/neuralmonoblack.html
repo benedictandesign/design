@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
+  />
+
+  <title>Neural Monobloc Black</title>
+  <link rel="stylesheet" href="../workstyle.css" />
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="../../index.html" id="logo">
+        BTJK
+      </a>
+    </div>
+  </header>
+
+  <main class="project-page">
+    <section class="project-hero">
+      <img src="../assets/portfolio/monobloc_ndc.jpg" alt="" />
+    </section>
+
+    <section class="project-info">
+      <h1 class="project-title">Neural Monobloc Black</h1>
+      <div class="project-details">
+        <p class="project-description">
+          The white stackable plastic Monobloc chair is the world’s most widely/cheaply/quickly produced and disposed chair. Most people would have at some point in their lives sat on a Monobloc chair without even noticing it. The Monobloc chair is also the most common chair imagery on the internet, thus automatically finding its way into any datasets used to train today’s most powerful foundation AI models such as ChatGPT and Stable Diffusion. The Monobloc is a blanket term and therefore it is one and many chairs at the same time. It doesn’t really have a name(s) nor an acknowledged designer(s). However, its physical and digital ubiquity makes it the perfect baseline artefact to discuss design with anyone, from anywhere, and at any time.
+        </p>
+        <ul class="project-meta">
+            <li><strong>Year:</strong> <br>2024</li>
+            <li>
+                <strong>Team:</strong><br>
+                Architificial Architecture
+            </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="image-showcase">
+      <img src="../assets/portfolio/monobloc_models.jpg" alt="" />
+    </section>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/monobloc_ndc_02.jpg",
+        "../assets/portfolio/monobloc_venice.jpg",
+        "../assets/portfolio/monobloc_lib.png",
+        "../assets/portfolio/monobloc_sutd.jpg"
+      ]'
+    ></glide-gallery>
+
+    <section class="video-showcase">
+      <iframe
+        src="https://www.youtube.com/embed/undu9BjdJV8?si=Vpvb8Q-VIUltl4Pr"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+  <script>
+    class GlideGallery extends HTMLElement {
+      connectedCallback() {
+        // parse attributes
+        let images = [];
+        try {
+          images = JSON.parse(this.getAttribute('images'));
+        } catch {
+          images = this.getAttribute('images').split(',');
+        }
+
+        // build the carousel markup
+        const section = document.createElement('section');
+        section.className = 'project-carousel';
+        section.innerHTML = `
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                ${images
+                  .map(
+                    src =>
+                      `<li class="glide__slide"><img src="${src.trim()}" alt=""></li>`
+                  )
+                  .join('')}
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">‹</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">›</button>
+            </div>
+          </div>
+        `;
+
+        // attach it
+        this.appendChild(section);
+
+        // mount Glide on this carousel
+        new Glide(section.querySelector('.glide'), {
+          type: 'carousel',
+          startAt: 0,
+          perView: 1,
+          focusAt: 'center',
+          gap: 5,
+          peek: { before: 0, after: 0 },
+          animationDuration: 400,
+          hoverpause: true,
+          keyboard: true
+        }).mount();
+      }
+    }
+    customElements.define('glide-gallery', GlideGallery);
+  </script>
+</body>
+</html>

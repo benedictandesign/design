@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
+  />
+  <link rel="stylesheet" href="../workstyle.css" />
+
+  <title>Yaqzans' Space</title>
+</head>
+<body style="background-color: #ffffff;">
+  <header>
+    <div class="header-container">
+      <a href="../../index.html" id="logo">
+        BTJK
+      </a>
+    </div>
+  </header>
+
+  <main class="project-page">
+    <section class="project-hero">
+      <img
+        src="../assets/portfolio/Portfolio Website.jpg"
+      />
+    </section>
+
+    <section class="project-info">
+      <h1 class="project-title">Yaqzans' Space</h1>
+      <div class="project-details">
+        <p class="project-description">
+          Before, During, After <br><br>
+          Three connected stages of meditation, each setting the stage for the next to unfold smoothly.<br><br>
+
+          Before. We pause and ease our thoughts, settling into a calm space and gently preparing the mind for stillness.<br><br>
+
+          During. We turn inward, observing our reflections and letting each breath guide us through quiet contemplation.<br><br>
+
+          After. We close the session with gentle care, preserving the sense of calm so the world beyond doesn’t intrude too quickly.<br><br>
+
+          A distraction-free setting and a seamless shift from one stage to the next help the whole process flow naturally.
+          
+        </p>
+        <ul class="project-meta">
+          <li><strong>Year:</strong><br />2018</li>
+          <li>
+            <strong>Team:</strong><br />
+            Benedict Tan
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Portfolio Website2.jpg" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Portfolio Website3.jpg" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Portfolio Website4.jpg" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Portfolio Website5.jpg" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Portfolio Website6.jpg" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Portfolio Website7.jpg" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Portfolio Website8.jpg" alt="" />
+    </section>
+    <section class="image-showcase">
+      <img src="../assets/portfolio/Portfolio Website9.jpg" alt="" />
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+  <script>
+    class GlideGallery extends HTMLElement {
+      connectedCallback() {
+        // parse attributes
+        let images = [];
+        try {
+          images = JSON.parse(this.getAttribute('images'));
+        } catch {
+          images = this.getAttribute('images').split(',');
+        }
+
+        // build the carousel markup
+        const section = document.createElement('section');
+        section.className = 'project-carousel';
+        section.innerHTML = `
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                ${images
+                  .map(
+                    src =>
+                      `<li class="glide__slide"><img src="${src.trim()}" alt=""></li>`
+                  )
+                  .join('')}
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">‹</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">›</button>
+            </div>
+          </div>
+        `;
+
+        // attach it
+        this.appendChild(section);
+
+        // mount Glide on this carousel
+        new Glide(section.querySelector('.glide'), {
+          type: 'carousel',
+          startAt: 0,
+          perView: 1,
+          focusAt: 'center',
+          gap: 5,
+          peek: { before: 0, after: 0 },
+          animationDuration: 400,
+          hoverpause: true,
+          keyboard: true
+        }).mount();
+      }
+    }
+    customElements.define('glide-gallery', GlideGallery);
+  </script>
+</body>
+</html>

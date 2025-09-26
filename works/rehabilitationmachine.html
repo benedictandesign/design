@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
+  />
+  <link rel="stylesheet" href="../workstyle.css" />
+
+  <title>Rehabilitative Machine</title>
+</head>
+<body style="background-color: #fff;">
+  <header>
+    <div class="header-container">
+      <a href="../../index.html" id="logo">
+        BTJK
+      </a>
+    </div>
+  </header>
+
+  <main class="project-page">
+    <section class="project-hero">
+      <img
+        src="../assets/portfolio/PortfolioProject4Info.JPG"
+      />
+    </section>
+
+    <section class="project-info">
+      <h1 class="project-title">Rehabilitative Machine</h1>
+      <div class="project-details">
+        <p class="project-description">
+          2070, digitalisation, a conformist society alongside societal pressure are breeding ground for a reclusive society. Despite the change in societal behaviour, there is still an ingerent desire to return to society. The architecture attempts to be a passive rehabilitatibe housing model to encourage the reintegration back into society through the activity of urban farming, thereby encouraging social interactions.
+        </p>
+        <ul class="project-meta">
+          <li><strong>Year:</strong> <br />2020</li>
+          <li>
+            <strong>Team:</strong><br />
+            Benedict Tan<br />
+            Lester Lim<br />
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="image-showcase">
+      <img
+        src="../assets/portfolio/Rehab.png"
+      />
+    </section>
+
+    <section class="image-showcase">
+      <img
+        src="../assets/portfolio/Rehab2.png"
+      />
+    </section>
+
+    <section class="image-showcase">
+      <img
+        src="../assets/portfolio/Rehab3.png"
+      />
+    </section>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/Rehab8.png",
+        "../assets/portfolio/Rehab9.png"
+      ]'
+    ></glide-gallery>
+
+    <section class="image-showcase">
+      <img
+        src="../assets/portfolio/Rehab11.png"
+      />
+    </section>
+
+    <section class="image-showcase">
+      <img
+        src="../assets/portfolio/Rehab10.png"
+      />
+    </section>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/Rehab4.png",
+        "../assets/portfolio/Rehab5.png"
+      ]'
+    ></glide-gallery>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/Rehab6.png",
+        "../assets/portfolio/Rehab7.png"
+      ]'
+    ></glide-gallery>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/Image7.png",
+        "../assets/portfolio/Image3_000.png",
+        "../assets/portfolio/Image5_000.png",
+        "../assets/portfolio/Image4_000.png"
+      ]'
+    ></glide-gallery>
+
+    <glide-gallery
+      images='[
+        "../assets/portfolio/PortfolioSectionPerspective-01.png",
+        "../assets/portfolio/PortfolioSectionPerspective-02.png",
+        "../assets/portfolio/PortfolioSectionPerspective-03.png"
+      ]'
+    ></glide-gallery>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+  <script>
+    class GlideGallery extends HTMLElement {
+      connectedCallback() {
+        // parse attributes
+        let images = [];
+        try {
+          images = JSON.parse(this.getAttribute('images'));
+        } catch {
+          images = this.getAttribute('images').split(',');
+        }
+
+        // build the carousel markup
+        const section = document.createElement('section');
+        section.className = 'project-carousel';
+        section.innerHTML = `
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                ${images
+                  .map(
+                    src =>
+                      `<li class="glide__slide"><img src="${src.trim()}" alt=""></li>`
+                  )
+                  .join('')}
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">‹</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">›</button>
+            </div>
+          </div>
+        `;
+
+        // attach it
+        this.appendChild(section);
+
+        // mount Glide on this carousel
+        new Glide(section.querySelector('.glide'), {
+          type: 'carousel',
+          startAt: 0,
+          perView: 1,
+          focusAt: 'center',
+          gap: 5,
+          peek: { before: 0, after: 0 },
+          animationDuration: 400,
+          hoverpause: true,
+          keyboard: true
+        }).mount();
+      }
+    }
+    customElements.define('glide-gallery', GlideGallery);
+  </script>
+</body>
+</html>
