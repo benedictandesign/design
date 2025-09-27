@@ -78,7 +78,7 @@ export const overlayData = {
           },
           {
             x: 1940, y: 550,
-            imageUrl: './assets/thumbnail/Mhcf-tn.jpg',
+            imageUrl: './assets/thumbnail/MhCf-tn.JPG',
             title: 'Machine Crafted',
             type: 'Experimental',
             url: './works/machinecrafted.html'
