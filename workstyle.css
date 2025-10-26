@@ -99,11 +99,18 @@ body {
       align-items: flex-start;
       margin-top: 20px;
     }
+    /* Single-column variant for text-only sections */
+    .project-details.full {
+      display: block;
+    }
     .project-description {
       font-size: 1.2em;
       color: #a5a5a5;
       width: 60%;
       text-align: left;
+    }
+    .project-details.full .project-description {
+      width: 100%;
     }
     .project-meta {
     list-style: none;
@@ -125,6 +132,87 @@ body {
     .video-showcase {
       margin-top: 40px;
       text-align: center;
+    }
+    /* Full-bleed image showcase (like hero) */
+    .image-showcase.fullbleed {
+      position: relative;
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+      padding: 0; /* remove white gaps */
+    }
+    .image-showcase.fullbleed img {
+      border-radius: 0;
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+    }
+    /* Grid layout for multi-image galleries rendered inline */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 40px;
+    }
+    .image-grid img,
+    .image-grid video {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      display: block;
+    }
+    /* Side-by-side image + text layout */
+    .side-by-side {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      margin-top: 40px;
+    }
+    .side-by-side .image-col,
+    .side-by-side .text-col {
+      flex: 1 1 0;
+    }
+    .side-by-side .image-col img,
+    .side-by-side .image-col video {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      display: block;
+    }
+    .side-by-side .project-title {
+      color: #cacaca;
+      margin-top: 0;
+    }
+    .side-by-side .project-description {
+      width: 100%;
+    }
+    /* White background frame for transparent PNG showcases */
+    .image-showcase.white-bg {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 4px;
+    }
+    /* Themed project subsections */
+    .project-section {
+      margin-top: 40px;
+      padding: 24px;
+      border-radius: 6px;
+      background: #0d0d0d; /* default fallback */
+    }
+    .project-section.gov-section-1 { border: #4e4e4e 2px solid; }
+    .project-section.gov-section-2 { border: #4e4e4e 2px solid; }
+    .project-section.gov-section-3 { border: #4e4e4e 2px solid; }
+    .project-section glide-gallery,
+    .project-section .image-showcase,
+    .project-section .video-showcase {
+      margin-top: 20px;
+    }
+    .project-section .side-by-side.section-header {
+      margin-top: 20px;
     }
     .image-showcase img,
     .image-showcase video {
@@ -213,6 +301,11 @@ body {
 
   .project-description {
     font-size: 1em;
+  }
+
+  /* Stack side-by-side sections on small screens */
+  .side-by-side {
+    flex-direction: column;
   }
 
   /* NEW: Force landscape aspect ratio for gallery */
