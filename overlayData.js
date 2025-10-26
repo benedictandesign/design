@@ -38,8 +38,8 @@ export const overlayData = {
         ]
       },
       {
-        // Section for "SCHOOL"
-        note: { x: 1220,  y: 205,  cls: 'black', txt: 'SCHOOL', fontSize: '22px' },
+        // Section for "Early Works"
+        note: { x: 1220,  y: 205,  cls: 'black', txt: 'EARLY WORKS', fontSize: '22px' },
         projects: [
           {
             x: 1400, y: 300,
