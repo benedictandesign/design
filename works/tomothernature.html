@@ -19,7 +19,7 @@
 <body>
   <header>
     <div class="header-container">
-      <a href="../../index.html" id="logo">BTJK</a>
+      <a href="../index.html" id="logo">BTJK</a>
     </div>
   </header>
 
@@ -255,62 +255,6 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
-  <script>
-    class GlideGallery extends HTMLElement {
-      connectedCallback() {
-        let images = [];
-        try {
-          images = JSON.parse(this.getAttribute('images'));
-        } catch {
-          images = (this.getAttribute('images') || '').split(',');
-        }
-
-        const layout = (this.getAttribute('layout') || 'carousel').toLowerCase();
-        const colsAttr = parseInt(this.getAttribute('cols') || '0', 10);
-
-        if (layout === 'grid') {
-          const grid = document.createElement('section');
-          grid.className = 'image-grid';
-          if (!isNaN(colsAttr) && colsAttr > 0) {
-            grid.style.gridTemplateColumns = `repeat(${colsAttr}, 1fr)`;
-          }
-          grid.innerHTML = images
-            .map(src => `<img src="${(src || '').toString().trim()}" alt="">`)
-            .join('');
-          this.appendChild(grid);
-          return;
-        }
-
-        const section = document.createElement('section');
-        section.className = 'project-carousel';
-        section.innerHTML = `
-          <div class="glide">
-            <div class="glide__track" data-glide-el="track">
-              <ul class="glide__slides">
-                ${images.map(src => `<li class=\"glide__slide\"><img src=\"${(src || '').toString().trim()}\" alt=\"\"></li>`).join('')}
-              </ul>
-            </div>
-            <div class="glide__arrows" data-glide-el="controls">
-              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">&lt;</button>
-              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">&gt;</button>
-            </div>
-          </div>
-        `;
-        this.appendChild(section);
-        new Glide(section.querySelector('.glide'), {
-          type: 'carousel',
-          startAt: 0,
-          perView: 1,
-          focusAt: 'center',
-          gap: 5,
-          peek: { before: 0, after: 0 },
-          animationDuration: 400,
-          hoverpause: true,
-          keyboard: true
-        }).mount();
-      }
-    }
-    customElements.define('glide-gallery', GlideGallery);
-  </script>
+  <script src="../glide-gallery.js"></script>
 </body>
 </html>

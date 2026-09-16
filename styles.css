@@ -61,6 +61,7 @@ canvas {
   overflow: hidden;
   isolation: isolate;
   z-index: 90; /* behind HUD but above canvas */
+  touch-action: none;
 }
 #overlay.hidden {
   display: none;
@@ -139,6 +140,7 @@ canvas {
 /* ─── project cards ───────────────────────────────────────── */
 .project-card {
   position: absolute;
+  display: block;
   width: 300px;
   background: rgb(0, 0, 0);
   border: 3px solid #333;
@@ -147,8 +149,11 @@ canvas {
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden;
+  color: inherit;
+  text-decoration: none;
 }
-.project-card:hover {
+.project-card:hover,
+.project-card:focus-visible {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0,0,0,.3);
 }
@@ -170,7 +175,8 @@ canvas {
               padding 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 /* MODIFICATION: On hover, expand the content area */
-.project-card:hover .project-card-content {
+.project-card:hover .project-card-content,
+.project-card:focus-visible .project-card-content {
   max-height: 100px; /* A value larger than the content's expected height */
   opacity: 1;
   padding: 15px;

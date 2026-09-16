@@ -49,18 +49,10 @@ body {
       opacity: 0.7;
     }
 
-    /* remove all padding from project-page */
     main.project-page {
       max-width: 1080px;
       margin: auto;
-      padding: 0;
-      padding-bottom: 80px;
-    }
-
-    .project-page {
-      max-width: 1080px;
-      margin: auto;
-      padding: 0px;
+      padding: 0 0 80px;
     }
 
     /* 1) Hero wrapper: remove fixed height */

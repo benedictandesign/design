@@ -32,8 +32,7 @@ export function addNote(viewport, { x, y, cls, txt, width, fontSize, isHTML }) {
   // add listeners to avoid starting the overlay pan on interaction.
   if (n.classList.contains('clickable')) {
     n.style.pointerEvents = 'auto';
-    n.addEventListener('mousedown', e => e.stopPropagation());
-    n.addEventListener('touchstart', e => e.stopPropagation());
+    n.addEventListener('pointerdown', e => e.stopPropagation());
   }
 
   viewport.appendChild(n);
@@ -41,13 +40,14 @@ export function addNote(viewport, { x, y, cls, txt, width, fontSize, isHTML }) {
 
 /**
  * Renders a project card at an absolute position within the overlay viewport.
- * Clicking the card opens the project URL in a new tab/window.
+ * Renders each project as a normal link for keyboard and browser navigation.
  * @param {HTMLElement} viewport - The container element for overlay content.
  * @param {Object} project - An object with x, y, imageUrl, title, type, and url.
  */
 export function addProjectCard(viewport, { x, y, imageUrl, title, type, url }) {
-  const card = document.createElement('div');
+  const card = document.createElement('a');
   card.className = 'project-card';
+  card.href = url;
   card.style.left = `${x}px`;
   card.style.top  = `${y}px`;
 
@@ -59,20 +59,13 @@ export function addProjectCard(viewport, { x, y, imageUrl, title, type, url }) {
     </div>
   `;
 
-  // Prevent the viewport from panning when you click on a card
-  card.addEventListener('mousedown', e => e.stopPropagation());
-  card.addEventListener('touchstart', e => e.stopPropagation());
-
-  // Open the project URL in a new tab/window when clicked
-  card.addEventListener('click', () => {
-    window.open(url, '_blank');
-  });
+  // Keep card activation distinct from dragging the canvas.
+  card.addEventListener('pointerdown', e => e.stopPropagation());
 
   viewport.appendChild(card);
 }
 
 /**
- * NEW FUNCTION
  * Renders a profile image at an absolute position within the overlay viewport.
  * @param {HTMLElement} viewport - The container element for overlay content.
  * @param {Object} imgData - The profile image data object.

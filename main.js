@@ -24,64 +24,58 @@ const viewState = {
 
 let currentSection = 'home';   // 'home' | 'works' | 'about'
 let isPanning      = false;
+let activePointerId = null;
 let startX = 0, startY = 0;
 let tx = 0, ty = 0, scale = 1;
+const MIN_SCALE = 0.35;
+const MAX_SCALE = 2;
 
 // ---- Unified event handlers for Pan & Zoom ----------------------------
 
-// Helper to get the correct coordinates from either a mouse or touch event
-function getEventCoords(e) {
-  if (e.touches && e.touches.length > 0) {
-    return { x: e.touches[0].clientX, y: e.touches[0].clientY };
-  }
-  return { x: e.clientX, y: e.clientY };
-}
-
 function handlePanStart(e) {
+  if (!e.isPrimary || e.button !== 0) return;
   e.preventDefault();
   isPanning = true;
+  activePointerId = e.pointerId;
+  overlay.setPointerCapture(e.pointerId);
   viewport.style.cursor = 'grabbing';
-  const coords = getEventCoords(e);
-  startX = coords.x;
-  startY = coords.y;
+  startX = e.clientX;
+  startY = e.clientY;
 }
 
 function handlePanMove(e) {
-  if (!isPanning) return;
+  if (!isPanning || e.pointerId !== activePointerId) return;
   e.preventDefault();
-  const coords = getEventCoords(e);
-  tx += coords.x - startX;
-  ty += coords.y - startY;
-  startX = coords.x;
-  startY = coords.y;
+  tx += e.clientX - startX;
+  ty += e.clientY - startY;
+  startX = e.clientX;
+  startY = e.clientY;
   applyTransform();
 }
 
-function handlePanEnd() {
+function handlePanEnd(e) {
+  if (e.pointerId !== activePointerId) return;
   isPanning = false;
+  activePointerId = null;
   viewport.style.cursor = 'grab';
 }
 
 // ---- Attach Listeners ----------------------------------------------------
-// Listen on the full-screen OVERLAY, not just the VIEWPORT
-overlay.addEventListener('mousedown', handlePanStart);
-window.addEventListener('mousemove', handlePanMove);
-window.addEventListener('mouseup', handlePanEnd);
-overlay.addEventListener('touchstart', handlePanStart, { passive: false });
-window.addEventListener('touchmove', handlePanMove, { passive: false });
-window.addEventListener('touchend', handlePanEnd);
+overlay.addEventListener('pointerdown', handlePanStart);
+overlay.addEventListener('pointermove', handlePanMove);
+overlay.addEventListener('pointerup', handlePanEnd);
+overlay.addEventListener('pointercancel', handlePanEnd);
 
 
 // ---- wheel to zoom (focus under cursor) ------------------------------------
 // Listen on the full-screen OVERLAY, not just the VIEWPORT
 overlay.addEventListener('wheel', e => {
   e.preventDefault();
-  const rect      = viewport.getBoundingClientRect();
-  const cx        = e.clientX - rect.left;
-  const cy        = e.clientY - rect.top;
+  const cx        = e.clientX;
+  const cy        = e.clientY;
   const prevScale = scale;
   const factor    = e.deltaY < 0 ? 1.15 : 0.85;
-  scale *= factor;
+  scale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, scale * factor));
 
   tx = cx - (cx - tx) * (scale / prevScale);
   ty = cy - (cy - ty) * (scale / prevScale);
@@ -198,10 +192,10 @@ function updateSlider(activeLink) {
   slider.style.left = `${activeLink.offsetLeft}px`;
 }
 
-const initialActiveLink = document.querySelector('.nav-link.active');
-if (initialActiveLink) {
-    setTimeout(() => updateSlider(initialActiveLink), 50);
-}
+setTimeout(() => {
+  const activeLink = document.querySelector('.nav-link.active');
+  if (activeLink) updateSlider(activeLink);
+}, 50);
 
 nav.addEventListener('click', (e) => {
   e.preventDefault();
@@ -213,6 +207,7 @@ nav.addEventListener('click', (e) => {
   updateSlider(clickedLink);
 
   const section = clickedLink.dataset.section;
+  history.replaceState(null, '', `#${section}`);
 
   if (section === 'home') {
     hideOverlay();
@@ -223,6 +218,11 @@ nav.addEventListener('click', (e) => {
     toggleSection('about', new THREE.Vector3(-2, 0, 0));
   }
 });
+
+const initialSection = location.hash.slice(1);
+if (initialSection === 'works' || initialSection === 'about') {
+  document.querySelector(`[data-section="${initialSection}"]`).click();
+}
 
 function toggleSection(sec, camPos) {
   if (currentSection === sec) {
