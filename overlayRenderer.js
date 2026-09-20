@@ -1,105 +1,159 @@
-// overlayRenderer.js
+let sectionObserver;
 
-/**
- * Renders a note at an absolute position within the overlay viewport.
- * @param {HTMLElement} viewport - The container element for overlay content.
- * @param {Object} note - An object with x, y, cls, txt.
- */
-export function addNote(viewport, { x, y, cls, txt, width, fontSize, isHTML }) {
-  const n = document.createElement('div');
-  n.className   = `note ${cls}`;
-  n.style.left  = `${x}px`;
-  n.style.top   = `${y}px`;
-  n.style.padding = '25px';
-  
-    // 1. Set the width, fontsize if it's provided
-  if (width) {
-    n.style.width = `${width}px`;
-  }
-
-  if (fontSize) {
-    n.style.fontSize = fontSize;
-  }
-
-  // 2. Render content: if explicit HTML, don't inject <br> into SVGs
-  if (isHTML) {
-    n.innerHTML = txt;
-  } else {
-    n.innerHTML = txt.replace(/\n/g, '<br>');
-  }
-
-  // If this note is intended to be interactive (e.g., contains links/icons),
-  // add listeners to avoid starting the overlay pan on interaction.
-  if (n.classList.contains('clickable')) {
-    n.style.pointerEvents = 'auto';
-    n.addEventListener('pointerdown', e => e.stopPropagation());
-  }
-
-  viewport.appendChild(n);
+function element(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text) node.textContent = text;
+  return node;
 }
 
-/**
- * Renders a project card at an absolute position within the overlay viewport.
- * Renders each project as a normal link for keyboard and browser navigation.
- * @param {HTMLElement} viewport - The container element for overlay content.
- * @param {Object} project - An object with x, y, imageUrl, title, type, and url.
- */
-export function addProjectCard(viewport, { x, y, imageUrl, title, type, url }) {
-  const card = document.createElement('a');
-  card.className = 'project-card';
-  card.href = url;
-  card.style.left = `${x}px`;
-  card.style.top  = `${y}px`;
+function projectCard(project, index) {
+  const card = element('a', 'project-card');
+  card.href = project.url;
+  card.style.setProperty('--card-index', index);
 
-  card.innerHTML = `
-    <img src="${imageUrl}" alt="${title}">
-    <div class="project-card-content">
-      <h3 class="project-card-title">${title}</h3>
-      <p class="project-card-type">${type}</p>
-    </div>
+  const image = element('img');
+  image.src = project.imageUrl;
+  image.alt = '';
+  image.loading = 'lazy';
+
+  const content = element('span', 'project-card-content');
+  const number = element('span', 'project-card-index', String(index + 1).padStart(2, '0'));
+  const copy = element('span', 'project-card-copy');
+  copy.append(element('strong', 'project-card-title', project.title));
+  copy.append(element('span', 'project-card-type', project.type));
+  const arrow = element('span', 'project-card-arrow', '↗');
+  arrow.setAttribute('aria-hidden', 'true');
+
+  content.append(number, copy, arrow);
+  card.append(image, content);
+  return card;
+}
+
+function experienceHeader(data) {
+  const header = element('header', 'experience-header');
+  header.innerHTML = `
+    <p class="experience-eyebrow">${data.eyebrow}</p>
+    <h1>${data.title}</h1>
+    ${data.introduction ? `<p class="experience-introduction">${data.introduction}</p>` : ''}
+    <div class="scroll-cue"><span></span>SCROLL TO EXAMINE</div>
+  `;
+  return header;
+}
+
+function observeSections(viewport, selector, onActive) {
+  sectionObserver?.disconnect();
+  const sections = [...viewport.querySelectorAll(selector)];
+  sectionObserver = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter(entry => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) onActive(visible.target);
+  }, { root: viewport.closest('#overlay'), threshold: [0.2, 0.45, 0.7] });
+  sections.forEach(section => sectionObserver.observe(section));
+}
+
+function renderWorks(viewport, data) {
+  viewport.appendChild(experienceHeader(data));
+
+  const anatomy = element('div', 'anatomy-layout');
+  const index = element('aside', 'anatomy-index');
+  index.innerHTML = `
+    <p class="index-label">BODY INDEX</p>
+    <div class="anatomy-axis" aria-hidden="true"><i></i><i></i><i></i></div>
   `;
 
-  // Keep card activation distinct from dragging the canvas.
-  card.addEventListener('pointerdown', e => e.stopPropagation());
+  const navigation = element('nav', 'anatomy-navigation');
+  navigation.setAttribute('aria-label', 'Work systems');
+  data.sections.forEach((section) => {
+    const button = element('button', 'anatomy-navigation-item');
+    button.type = 'button';
+    button.dataset.target = section.id;
+    button.innerHTML = `<span>${section.index}</span><strong>${section.title}</strong><small>${section.system.split(' / ')[0]}</small>`;
+    button.addEventListener('click', () => document.getElementById(`works-${section.id}`)?.scrollIntoView({ behavior: 'smooth' }));
+    navigation.appendChild(button);
+  });
+  index.appendChild(navigation);
 
-  viewport.appendChild(card);
+  const clusters = element('main', 'work-clusters');
+  data.sections.forEach((section) => {
+    const cluster = element('section', 'work-cluster');
+    cluster.id = `works-${section.id}`;
+    cluster.dataset.region = section.id;
+    cluster.innerHTML = `
+      <div class="cluster-heading">
+        <p>${section.index} / ${section.system}</p>
+        <h2>${section.title}</h2>
+      </div>
+    `;
+    const grid = element('div', 'project-grid');
+    section.projects.forEach((project, projectIndex) => grid.appendChild(projectCard(project, projectIndex)));
+    cluster.appendChild(grid);
+    clusters.appendChild(cluster);
+  });
+
+  anatomy.append(index, clusters);
+  viewport.appendChild(anatomy);
+
+  observeSections(viewport, '.work-cluster', (active) => {
+    const region = active.dataset.region;
+    viewport.dataset.activeRegion = region;
+    document.body.dataset.activeRegion = region;
+    viewport.querySelectorAll('.anatomy-navigation-item').forEach(item => {
+      item.classList.toggle('active', item.dataset.target === region);
+    });
+  });
 }
 
-/**
- * Renders a profile image at an absolute position within the overlay viewport.
- * @param {HTMLElement} viewport - The container element for overlay content.
- * @param {Object} imgData - The profile image data object.
- */
-export function addProfileImage(viewport, { x, y, width, height, imageUrl, backgroundColor }) {
-  const container = document.createElement('div');
-  container.className = 'profile-image-container';
-  container.style.left = `${x}px`;
-  container.style.top = `${y}px`;
-  container.style.width = `${width}px`;
-  container.style.height = `${height}px`;
-  container.style.backgroundColor = backgroundColor;
+function renderAbout(viewport, data) {
+  viewport.appendChild(experienceHeader(data));
 
-  const img = document.createElement('img');
-  img.src = imageUrl;
-  img.alt = 'Profile Picture'; // Good for accessibility
+  const registration = element('main', 'registration-layout');
+  const scanColumn = element('aside', 'subject-scan-column');
+  const scan = element('div', 'subject-scan');
+  scan.innerHTML = `
+    <div class="scan-corners" aria-hidden="true"></div>
+    <div class="scan-crosshair" aria-hidden="true"></div>
+    <img src="${data.scan.imageUrl}" alt="Point-cloud silhouette of Benedict Tan">
+  `;
+  scanColumn.appendChild(scan);
 
-  img.addEventListener('dragstart', (e) => e.preventDefault());
+  const record = element('article', 'subject-record');
+  const biography = element('section', 'profile-biography');
+  biography.append(
+    element('p', 'profile-role', 'ARCHITECTURE / AI / SPECULATIVE FUTURES'),
+    element('h2', '', 'Benedict Tan')
+  );
+  const biographyCopy = element('div', 'profile-biography-copy');
+  data.bio.forEach(paragraph => biographyCopy.appendChild(element('p', '', paragraph)));
+  biography.appendChild(biographyCopy);
+  record.appendChild(biography);
 
-  container.appendChild(img);
-  viewport.appendChild(container);
+  const contact = element('section', 'contact-record');
+  contact.innerHTML = '<p>OPEN CHANNELS</p><h3>Connect</h3>';
+  data.contact.forEach((channel) => {
+    const link = element('a', 'contact-channel');
+    link.href = channel.url;
+    if (channel.url.startsWith('http')) {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    }
+    link.innerHTML = `<span>${channel.label}</span><strong>${channel.value}</strong><i aria-hidden="true">↗</i>`;
+    contact.appendChild(link);
+  });
+  record.appendChild(contact);
+
+  registration.append(scanColumn, record);
+  viewport.appendChild(registration);
 }
 
-/**
- * Renders a section panel at an absolute position within the overlay viewport.
- * @param {HTMLElement} viewport - The container element for overlay content.
- * @param {Object} panel - An object with x, y, width, height.
- */
-export function addSectionPanel(viewport, { x, y, width, height }) {
-  const panel = document.createElement('div');
-  panel.className = 'section-panel';
-  panel.style.left = `${x}px`;
-  panel.style.top = `${y}px`;
-  panel.style.width = `${width}px`;
-  panel.style.height = `${height}px`;
-  viewport.appendChild(panel);
+export function renderOverlay(viewport, section, data) {
+  sectionObserver?.disconnect();
+  viewport.replaceChildren();
+  viewport.className = `overlay-experience ${section}-experience`;
+  delete viewport.dataset.activeRegion;
+  delete viewport.dataset.activeStage;
+
+  if (section === 'works') renderWorks(viewport, data);
+  if (section === 'about') renderAbout(viewport, data);
 }
